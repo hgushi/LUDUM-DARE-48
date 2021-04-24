@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://telas/PauseMenu.gd" type="Script" id=5]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = -0.095
+anchor_right = -0.095
+margin_left = 99.2801
+margin_top = 4.51983
+margin_right = 1124.28
+margin_bottom = 603.52
+color = Color( 0.0901961, 0.192157, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -115.524
+margin_top = 61.6389
+margin_right = -77.5238
+margin_bottom = 75.6389
+rect_scale = Vector2( 7, 7 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 347.0
+margin_top = 175.0
+margin_right = 437.0
+margin_bottom = 243.0
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 20.0
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 90.0
+margin_bottom = 44.0
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+pause_mode = 2
+margin_top = 48.0
+margin_right = 90.0
+margin_bottom = 68.0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
+[connection signal="button_down" from="VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

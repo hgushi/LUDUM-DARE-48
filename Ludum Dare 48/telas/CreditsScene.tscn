@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://telas/SaveF.gd" type="Script" id=1]
+[ext_resource path="res://telas/Save.tscn" type="PackedScene" id=2]
+[ext_resource path="res://telas/Quit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://telas/CreditsScene.gd" type="Script" id=5]
+
+[node name="CreditsScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 2.11534
+margin_right = 1025.11
+margin_bottom = 596.0
+color = Color( 0.0431373, 0.239216, 0.913725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Congratulations!" type="Label" parent="."]
+margin_left = 33.7267
+margin_top = 14.3848
+margin_right = 245.727
+margin_bottom = 59.3848
+rect_scale = Vector2( 4, 3 )
+text = "Congratulations! 
+You finished the game!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 170.0
+margin_right = 961.0
+margin_bottom = 467.0
+text = "This game is a UspGameDev's project and was developed by:
+	Débora Prudêncio 
+	Heitor Gushiken Junior
+	João Pedro Cabral Miranda
+The assets used in this game were created by:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveF" parent="." instance=ExtResource( 2 )]
+margin_left = -1.0275
+margin_top = 490.588
+margin_right = 50.9725
+margin_bottom = 517.588
+script = ExtResource( 1 )
+
+[node name="Quit" parent="." instance=ExtResource( 3 )]
+margin_left = 829.073
+margin_top = 492.662
+margin_right = 878.073
+margin_bottom = 519.662
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+autoplay = true
+[connection signal="button_down" from="Quit" to="." method="_on_Quit_button_down"]

@@ -1,0 +1,170 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://telas/SelectLevel.gd" type="Script" id=3]
+
+[node name="SelectLevel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = -0.000651777
+anchor_top = 0.00111237
+anchor_right = -0.000651836
+anchor_bottom = 0.00111237
+margin_left = -0.296692
+margin_top = -3.56763
+margin_right = 1026.7
+margin_bottom = 605.432
+color = Color( 0.0431373, 0.239216, 0.913725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select" type="Label" parent="."]
+margin_left = 328.7
+margin_top = 50.0
+margin_right = 413.7
+margin_bottom = 64.0
+rect_scale = Vector2( 4, 4 )
+text = "Select a level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 137.0
+margin_top = 142.0
+margin_right = 319.0
+margin_bottom = 182.0
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" type="Button" parent="HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 40.0
+text = "Level D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Button" parent="HBoxContainer"]
+margin_left = 64.0
+margin_right = 121.0
+margin_bottom = 40.0
+text = "Level E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level3" type="Button" parent="HBoxContainer"]
+margin_left = 125.0
+margin_right = 182.0
+margin_bottom = 40.0
+text = "Level E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_left = 141.0
+margin_top = 341.0
+margin_right = 325.0
+margin_bottom = 383.0
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level4" type="Button" parent="HBoxContainer2"]
+margin_right = 58.0
+margin_bottom = 42.0
+text = "Level P"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level5" type="Button" parent="HBoxContainer2"]
+margin_left = 62.0
+margin_right = 119.0
+margin_bottom = 42.0
+text = "Level E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level6" type="Button" parent="HBoxContainer2"]
+margin_left = 123.0
+margin_right = 181.0
+margin_bottom = 42.0
+text = "Level R"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocked2" type="Button" parent="."]
+margin_left = 390.993
+margin_top = 142.078
+margin_right = 466.993
+margin_bottom = 196.078
+rect_scale = Vector2( 3, 3 )
+text = "Blocked"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocked3" type="Button" parent="."]
+margin_left = 638.218
+margin_top = 143.335
+margin_right = 715.218
+margin_bottom = 196.335
+rect_scale = Vector2( 3, 3 )
+text = "Blocked"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocked4" type="Button" parent="."]
+margin_left = 143.0
+margin_top = 342.0
+margin_right = 220.0
+margin_bottom = 397.0
+rect_scale = Vector2( 3, 3 )
+text = "Blocked"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocked5" type="Button" parent="."]
+margin_left = 390.0
+margin_top = 340.0
+margin_right = 465.0
+margin_bottom = 396.0
+rect_scale = Vector2( 3, 3 )
+text = "Blocked"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blocked6" type="Button" parent="."]
+margin_left = 635.0
+margin_top = 341.0
+margin_right = 713.0
+margin_bottom = 398.0
+rect_scale = Vector2( 3, 3 )
+text = "Blocked"
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+[connection signal="button_down" from="HBoxContainer/Level1" to="." method="_on_Level1_button_down"]
+[connection signal="button_down" from="HBoxContainer/Level2" to="." method="_on_Level2_button_down"]
+[connection signal="button_down" from="HBoxContainer/Level3" to="." method="_on_Level3_button_down"]
+[connection signal="button_down" from="HBoxContainer2/Level4" to="." method="_on_Level4_button_down"]
+[connection signal="button_down" from="HBoxContainer2/Level5" to="." method="_on_Level5_button_down"]
+[connection signal="button_down" from="HBoxContainer2/Level6" to="." method="_on_Level6_button_down"]
