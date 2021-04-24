@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Sprites/Player_D/D_Idle3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Player_D/D_Idle2.png" type="Texture" id=2]
@@ -23,10 +23,14 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.50585, 5.51117 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4.12431, 6.77785 )
+
 [node name="Player_D" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 100, 100 )
+collision_mask = 20
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
@@ -35,5 +39,15 @@ frames = SubResource( 1 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 position = Vector2( 2.18271, 1.00287 )
 shape = SubResource( 2 )
+
+[node name="EnemyDetector" type="Area2D" parent="Player"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/EnemyDetector"]
+position = Vector2( 2.38464, 0.462608 )
+shape = SubResource( 3 )
+[connection signal="area_entered" from="Player/EnemyDetector" to="Player" method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="Player/EnemyDetector" to="Player" method="_on_EnemyDetector_body_entered"]
