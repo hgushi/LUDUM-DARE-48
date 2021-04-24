@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://musics/music_jewels.ogg" type="AudioStream" id=1]
 [ext_resource path="res://telas/LoseScene.gd" type="Script" id=4]
 [ext_resource path="res://telas/Save.tscn" type="PackedScene" id=5]
 
@@ -64,6 +65,8 @@ __meta__ = {
 }
 
 [node name="LoseMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 volume_db = -10.0
+autoplay = true
 [connection signal="button_down" from="VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
 [connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

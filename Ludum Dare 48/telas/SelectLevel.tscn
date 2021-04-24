@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://musics/awake10_megaWall.ogg" type="AudioStream" id=1]
 [ext_resource path="res://telas/SelectLevel.gd" type="Script" id=3]
 
 [node name="SelectLevel" type="Control"]
@@ -11,13 +12,13 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = -0.000651777
+anchor_left = -0.000651836
 anchor_top = 0.00111237
 anchor_right = -0.000651836
 anchor_bottom = 0.00111237
-margin_left = -0.296692
+margin_left = 2.226
 margin_top = -3.56763
-margin_right = 1026.7
+margin_right = 1029.22
 margin_bottom = 605.432
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {
@@ -36,9 +37,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 137.0
+margin_left = 138.0
 margin_top = 142.0
-margin_right = 319.0
+margin_right = 325.0
 margin_bottom = 182.0
 rect_scale = Vector2( 4, 4 )
 __meta__ = {
@@ -72,9 +73,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
-margin_left = 141.0
+margin_left = 143.0
 margin_top = 341.0
-margin_right = 325.0
+margin_right = 327.0
 margin_bottom = 383.0
 rect_scale = Vector2( 4, 4 )
 __meta__ = {
@@ -108,9 +109,9 @@ __meta__ = {
 }
 
 [node name="Blocked2" type="Button" parent="."]
-margin_left = 390.993
+margin_left = 394.357
 margin_top = 142.078
-margin_right = 466.993
+margin_right = 470.357
 margin_bottom = 196.078
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
@@ -141,9 +142,9 @@ __meta__ = {
 }
 
 [node name="Blocked5" type="Button" parent="."]
-margin_left = 390.0
+margin_left = 388.795
 margin_top = 340.0
-margin_right = 465.0
+margin_right = 464.795
 margin_bottom = 396.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
@@ -160,6 +161,7 @@ rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 volume_db = -10.0
 autoplay = true
 [connection signal="button_down" from="HBoxContainer/Level1" to="." method="_on_Level1_button_down"]
