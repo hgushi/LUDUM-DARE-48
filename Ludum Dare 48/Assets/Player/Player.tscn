@@ -45,6 +45,7 @@ shape = SubResource( 2 )
 
 [node name="EnemyDetector" type="Area2D" parent="Player"]
 monitorable = false
+collision_mask = 2147483664
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/EnemyDetector"]
 position = Vector2( 2.38464, 0.462608 )

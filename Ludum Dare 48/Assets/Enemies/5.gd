@@ -14,3 +14,4 @@ func _ready():
 	set_physics_process(false)
 	velocity.x = - speed.x
 
+

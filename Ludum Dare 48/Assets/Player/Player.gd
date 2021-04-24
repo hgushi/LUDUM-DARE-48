@@ -5,7 +5,7 @@ var speed : = Vector2(1000,1000)
 var velocity: = Vector2(0,0)
 var gravity: = 300.0
 var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
-var health
+var health = 1
 
 func _physics_processs(delta):
 	var direction = get_direction()
@@ -27,13 +27,18 @@ func get_direction():
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	var impulse: = 100
+	var impulse: = 0
+	if area.layers == 5:
+		impulse = 100
+	else:
+		impulse = 200
 	velocity.y = -velocity.y*impulse
 
 func _on_EnemyDetector_body_entered(body):
-	take_damage(2)
-	
+	take_damage(1)
+		
+
 func take_damage(amount):
 	health -= amount
 	health = max(health,0)
-	return health
+
