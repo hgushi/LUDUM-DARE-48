@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/D_Idle3.png-889fb895312d77a5058c6b100d156c54.stex"
+path="res://.import/deeper-tileset.png-0779064186ae5d2412a51aa698f84cb4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player_D/D_Idle3.png"
-dest_files=[ "res://.import/D_Idle3.png-889fb895312d77a5058c6b100d156c54.stex" ]
+source_file="res://Assets/Sprites/deeper-tileset.png"
+dest_files=[ "res://.import/deeper-tileset.png-0779064186ae5d2412a51aa698f84cb4.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

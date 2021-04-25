@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Arvore",
+"language": "GDScript",
+"path": "res://Assets/Enemies/Arvore.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Assets/Player/Player.gd"
 } ]
 _global_script_class_icons={
+"Arvore": "",
 "Player": ""
 }
 
@@ -70,4 +76,5 @@ p={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+batching/precision/uv_contract=true
 environment/default_environment="res://default_env.tres"

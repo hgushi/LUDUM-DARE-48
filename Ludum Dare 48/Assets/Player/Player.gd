@@ -1,10 +1,17 @@
 extends KinematicBody2D
 class_name Player
 
-
 var velocity: = Vector2(0,0)
-var gravity: = 300.0
+var gravity: = 400.0
 var health: = 1.0
+var speed : = Vector2(210,210)
+var dash_charge = true
+
+var d_charge = 0
+var e_charge = 0
+var p_charge = 0
+var r_charge = 0 
+
 signal death
 
 func _ready():
@@ -12,11 +19,24 @@ func _ready():
 	connect("death",self.get_parent().get_parent(),"death")
 
 func _physics_process(_delta):
-	var speed : = Vector2(1000,1000)
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
+	
+	if not is_on_floor():
+		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.stop()
+	elif direction.x == 0:
+		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.flip_h = false
+		if direction.x < 0:
+			$AnimatedSprite.flip_h = true
+		$AnimatedSprite.animation = "Walk_D"
+		$AnimatedSprite.play()
+	
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-	move_and_slide(velocity,Vector2(0,-1))
+	velocity = move_and_slide(velocity,Vector2(0,-1))
 	if health <= 0:
 		emit_signal("death")
 
@@ -32,17 +52,19 @@ func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vec
 
 func get_direction() -> Vector2:
 	 return Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
+		Input.get_action_strength("move_right")/2 - Input.get_action_strength("move_left")/2, 
 	- 1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	var impulse: = 0
-	if area.layers == 5:
-		impulse = 100
+	if area.is_in_group("enemy"):
+		var impulse = 200
+		velocity.y = -velocity.y*impulse
 	else:
-		impulse = 200
-	velocity.y = -velocity.y*impulse
+		if area.is_in_group("d"): d_charge += 1
+		elif area.is_in_group("e"): e_charge += 1
+		elif area.is_in_group("r"): r_charge += 1
+		area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
 	take_damage(1)
