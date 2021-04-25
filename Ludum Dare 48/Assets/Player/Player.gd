@@ -37,8 +37,8 @@ func _physics_process(_delta):
 	
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
-	if health <= 0:
-		emit_signal("death")
+#	if health <= 0:
+#		emit_signal("death")
 
 func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, jump_interrupted: bool) -> Vector2:
 	var new_velocity: = linear_velocity
@@ -57,18 +57,19 @@ func get_direction() -> Vector2:
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	if area.is_in_group("enemy"):
-		var impulse = 200
-		velocity.y = -velocity.y*impulse
-	else:
-		if area.is_in_group("d"): d_charge += 1
-		elif area.is_in_group("e"): e_charge += 1
-		elif area.is_in_group("r"): r_charge += 1
-		area.queue_free()
+	if area.is_in_group("d"): d_charge += 1
+	elif area.is_in_group("e"): e_charge += 1
+	elif area.is_in_group("p"): p_charge += 1
+	elif area.is_in_group("r"): r_charge += 1
+	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
-	take_damage(1)
+	if _body.is_in_group("enemy"):
+		var impulse = 300
+		velocity.x = -impulse
+		velocity.y = -impulse
+		emit_signal("death")
 
-func take_damage(amount):
-	health -= amount
-	health = max(health,0.0)
+#func take_damage(amount):
+#	health -= amount
+#	health = max(health,0.0)
