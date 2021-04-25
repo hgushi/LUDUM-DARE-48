@@ -4,7 +4,7 @@ var speed : = Vector2(1000,1000)
 var velocity: = Vector2(0,0)
 var gravity: = 300.0
 
-func _physics_processs(delta):
+func _physics_process(delta):
 	velocity.y += gravity*delta
 	if is_on_wall():
 		velocity.x *= -1.0

@@ -37,11 +37,7 @@ func get_direction() -> Vector2:
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	var impulse: = 0
-	if area.layers == 5:
-		impulse = 100
-	else:
-		impulse = 200
+	var impulse = 200
 	velocity.y = -velocity.y*impulse
 
 func _on_EnemyDetector_body_entered(_body):
