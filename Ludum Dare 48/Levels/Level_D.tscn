@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Level_D.gd" type="Script" id=1]
 [ext_resource path="res://telas/PauseMenu.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/deeper_bg_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Sprites/deeper_fg_tileset.tres" type="TileSet" id=8]
 [ext_resource path="res://Assets/Charges/d_charge.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Enemies/9.tscn" type="PackedScene" id=10]
 
 [node name="Level_D" type="Node2D"]
 position = Vector2( 416, 224 )
@@ -68,10 +69,44 @@ scale = Vector2( 1.5, 1.5 )
 position = Vector2( 1872, 472 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="d_charge3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1232, 1160 )
-scale = Vector2( 1.5, 1.5 )
-
 [node name="d_charge4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1360, 1000 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 496, 528 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 688, 656 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 880, 752 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1072, 752 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1080, 528 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 840, 464 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1208, 880 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1200, 1048 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="9-9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1296, 1392 )
+scale = Vector2( 0.5, 0.5 )
+
+[editable path="9-3"]
