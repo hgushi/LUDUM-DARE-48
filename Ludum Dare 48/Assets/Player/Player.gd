@@ -16,7 +16,7 @@ func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-	move_and_slide(velocity,Vector2(0,-1))
+	velocity = move_and_slide(velocity,Vector2(0,-1))
 	if health <= 0:
 		emit_signal("death")
 
@@ -36,7 +36,7 @@ func get_direction() -> Vector2:
 	- 1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
 	)
 
-func _on_EnemyDetector_area_entered(area):
+func _on_EnemyDetector_area_entered(_area):
 	var impulse = 200
 	velocity.y = -velocity.y*impulse
 

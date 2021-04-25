@@ -42,7 +42,9 @@ extents = Vector2( 4.12431, 6.77785 )
 
 [node name="Player_D" type="Node2D"]
 
-[node name="Player" type="KinematicBody2D" parent="."]
+[node name="Player" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
@@ -50,7 +52,9 @@ position = Vector2( 100.059, 100 )
 frames = SubResource( 1 )
 animation = "Dash"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=[
+"player",
+]]
 visible = false
 position = Vector2( 102.183, 101.003 )
 shape = SubResource( 2 )
