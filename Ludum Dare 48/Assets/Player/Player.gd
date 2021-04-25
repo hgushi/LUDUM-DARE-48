@@ -59,7 +59,7 @@ func get_direction() -> Vector2:
 func _on_EnemyDetector_area_entered(area):
 	if area.is_in_group("enemy"):
 		var impulse = 200
-	velocity.y = -velocity.y*impulse
+		velocity.y = -velocity.y*impulse
 	else:
 		if area.is_in_group("d"): d_charge += 1
 		elif area.is_in_group("e"): e_charge += 1
