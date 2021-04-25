@@ -6,6 +6,10 @@ var velocity: = Vector2(0,0)
 var gravity: = 300.0
 var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
 var health = 1
+signal death
+
+func _ready():
+	connect("death",self.get_parent().get_parent(),"death")
 
 func _physics_processs(delta):
 	var direction = get_direction()
@@ -17,8 +21,7 @@ func _physics_processs(delta):
 		velocity.y = 0.0
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 	if health <= 0:
-		get_tree().paused = true
-		
+		emit_signal("death")
 
 func get_direction():
 	return Vector2(
@@ -34,7 +37,7 @@ func _on_EnemyDetector_area_entered(area):
 		impulse = 200
 	velocity.y = -velocity.y*impulse
 
-func _on_EnemyDetector_body_entered(body):
+func _on_EnemyDetector_body_entered(_body):
 	take_damage(1)
 		
 

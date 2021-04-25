@@ -72,6 +72,5 @@ __meta__ = {
 [node name="WinMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -15.0
-autoplay = true
 [connection signal="button_down" from="VBoxContainer/NextLevel" to="." method="_on_NextLevel_button_down"]
 [connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

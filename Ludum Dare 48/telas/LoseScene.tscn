@@ -67,6 +67,5 @@ __meta__ = {
 [node name="LoseMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -10.0
-autoplay = true
 [connection signal="button_down" from="VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
 [connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

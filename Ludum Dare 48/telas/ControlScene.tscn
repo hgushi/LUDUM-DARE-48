@@ -30,13 +30,14 @@ text = "Controls"
 align = 1
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 319.0
-margin_top = 203.0
-margin_right = 430.0
-margin_bottom = 234.0
+margin_left = 317.0
+margin_top = 185.0
+margin_right = 428.0
+margin_bottom = 233.0
 rect_scale = Vector2( 4, 4 )
 text = "Arrow keys: walk
-D,E,P e R: powers"
+D,E,P e R: powers
+Space Key: pause"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
