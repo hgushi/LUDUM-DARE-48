@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://ThaleahFat/new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://telas/PauseMenu.gd" type="Script" id=5]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,16 +50,16 @@ __meta__ = {
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
 margin_right = 90.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Retry" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
+margin_top = 25.0
 margin_right = 90.0
-margin_bottom = 44.0
+margin_bottom = 46.0
 text = "Retry"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,9 +67,9 @@ __meta__ = {
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 pause_mode = 2
-margin_top = 48.0
+margin_top = 50.0
 margin_right = 90.0
-margin_bottom = 68.0
+margin_bottom = 71.0
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
