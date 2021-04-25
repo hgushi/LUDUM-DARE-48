@@ -35,10 +35,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.78054, 7.18038 )
+extents = Vector2( 7.17882, 7.18038 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.74036, 7.30212 )
+extents = Vector2( 7.0954, 7.30212 )
 
 [node name="Player_D" type="Node2D"]
 
@@ -66,5 +66,9 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+
+[node name="DashTimer" type="Timer" parent="Player"]
+wait_time = 0.5
+one_shot = true
 [connection signal="area_entered" from="Player/EnemyDetector" to="Player" method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="Player/EnemyDetector" to="Player" method="_on_EnemyDetector_body_entered"]

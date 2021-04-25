@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deeper-tileset.png-0779064186ae5d2412a51aa698f84cb4.stex"
+path="res://.import/Earth_Idle5.png-73d82f9e68c299ac38ee4f1274dcf523.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/deeper-tileset.png"
-dest_files=[ "res://.import/deeper-tileset.png-0779064186ae5d2412a51aa698f84cb4.stex" ]
+source_file="res://Assets/Sprites/Player_Earth/Earth_Idle5.png"
+dest_files=[ "res://.import/Earth_Idle5.png-73d82f9e68c299ac38ee4f1274dcf523.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

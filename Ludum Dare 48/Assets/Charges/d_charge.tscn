@@ -41,12 +41,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=[
+"d",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
-frame = 3
+frame = 4
 playing = true
