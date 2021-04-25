@@ -1,10 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Level_D.gd" type="Script" id=1]
-[ext_resource path="res://telas/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://telas/LoseScene.tscn" type="PackedScene" id=4]
-[ext_resource path="res://telas/WinScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/mock-lvl-d.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/deeper_bg_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Sprites/deeper_fg_tileset.tres" type="TileSet" id=8]
@@ -12,6 +9,8 @@
 [ext_resource path="res://Assets/Enemies/9.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Enemies/8.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Enemies/Arvore7.tscn" type="PackedScene" id=12]
+
+[sub_resource type="LineShape2D" id=1]
 
 [node name="Level_D" type="Node2D"]
 position = Vector2( 416, 224 )
@@ -45,25 +44,13 @@ tile_data = PoolIntArray( -262157, 1, 0, -262156, 1, 0, -262155, 1, 0, -262154, 
 [node name="mock-lvl-a" type="Sprite" parent="."]
 visible = false
 self_modulate = Color( 1, 1, 1, 0.196078 )
-position = Vector2( 1491.13, 801.092 )
+position = Vector2( 1491.13, 798.973 )
 scale = Vector2( 2.36637, 2.36637 )
 texture = ExtResource( 6 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 2 )]
-visible = false
-margin_top = -1.0
-margin_right = 7.0
-margin_bottom = 6.0
-
-[node name="WinScene" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
-margin_left = -4.0
-
-[node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 4 )]
-visible = false
+[node name="Player_D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2436.38, 1364.34 )
+scale = Vector2( 2, 2 )
 
 [node name="d_charge" parent="." instance=ExtResource( 9 )]
 position = Vector2( 368, 304 )
@@ -179,6 +166,12 @@ wait_time = 3.5
 
 [node name="Arvore7" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2464, 1200 )
+[node name="End" type="Area2D" parent="."]
+position = Vector2( 2869.48, 1618.08 )
+collision_layer = 32
+
+[node name="Area2D" type="CollisionShape2D" parent="End"]
+shape = SubResource( 1 )
 
 [editable path="8 - atrasado"]
 

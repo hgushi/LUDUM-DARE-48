@@ -13,11 +13,12 @@ var p_charge = 0
 var r_charge = 0 
 
 signal death
+signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
 	connect("death",self.get_parent().get_parent(),"death")
-
+	connect("end",self.get_parent().get_parent(),"end")
 func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
@@ -82,3 +83,8 @@ func _on_EnemyDetector_body_entered(_body):
 #func take_damage(amount):
 #	health -= amount
 #	health = max(health,0.0)
+
+
+func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
+	if area_id == 1399:
+		emit_signal("end")
