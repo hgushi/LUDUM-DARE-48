@@ -35,10 +35,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 3.50585, 5.51117 )
+extents = Vector2( 5.78054, 7.18038 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.12431, 6.77785 )
+extents = Vector2( 5.74036, 7.30212 )
 
 [node name="Player_D" type="Node2D"]
 
@@ -46,20 +46,23 @@ extents = Vector2( 4.12431, 6.77785 )
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( 100.059, 100 )
 frames = SubResource( 1 )
 animation = "Dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
-position = Vector2( 102.183, 101.003 )
+position = Vector2( 1.41421, -0.707108 )
 shape = SubResource( 2 )
 
 [node name="EnemyDetector" type="Area2D" parent="Player"]
-position = Vector2( 100, 100 )
+position = Vector2( 8, 8 )
 monitorable = false
 collision_mask = 2147483664
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/EnemyDetector"]
-position = Vector2( 2.38464, 0.462608 )
+position = Vector2( -6.58579, -8.70711 )
 shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+[connection signal="area_entered" from="Player/EnemyDetector" to="Player" method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="Player/EnemyDetector" to="Player" method="_on_EnemyDetector_body_entered"]
