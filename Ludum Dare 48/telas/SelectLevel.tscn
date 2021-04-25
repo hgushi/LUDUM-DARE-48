@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://musics/awake10_megaWall.ogg" type="AudioStream" id=1]
+[ext_resource path="res://ThaleahFat/new_theme.tres" type="Theme" id=2]
 [ext_resource path="res://telas/SelectLevel.gd" type="Script" id=3]
 
 [node name="SelectLevel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -16,9 +18,9 @@ anchor_left = -0.000651836
 anchor_top = 0.00111237
 anchor_right = -0.000651836
 anchor_bottom = 0.00111237
-margin_left = 2.226
+margin_left = 3.226
 margin_top = -3.56763
-margin_right = 1029.22
+margin_right = 1030.22
 margin_bottom = 605.432
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {
@@ -47,7 +49,7 @@ __meta__ = {
 }
 
 [node name="Level1" type="Button" parent="HBoxContainer"]
-margin_right = 60.0
+margin_right = 65.0
 margin_bottom = 40.0
 text = "Level D"
 __meta__ = {
@@ -55,8 +57,8 @@ __meta__ = {
 }
 
 [node name="Level2" type="Button" parent="HBoxContainer"]
-margin_left = 64.0
-margin_right = 121.0
+margin_left = 69.0
+margin_right = 134.0
 margin_bottom = 40.0
 text = "Level E"
 __meta__ = {
@@ -64,8 +66,8 @@ __meta__ = {
 }
 
 [node name="Level3" type="Button" parent="HBoxContainer"]
-margin_left = 125.0
-margin_right = 182.0
+margin_left = 138.0
+margin_right = 203.0
 margin_bottom = 40.0
 text = "Level E"
 __meta__ = {
@@ -83,7 +85,7 @@ __meta__ = {
 }
 
 [node name="Level4" type="Button" parent="HBoxContainer2"]
-margin_right = 58.0
+margin_right = 65.0
 margin_bottom = 42.0
 text = "Level P"
 __meta__ = {
@@ -91,8 +93,8 @@ __meta__ = {
 }
 
 [node name="Level5" type="Button" parent="HBoxContainer2"]
-margin_left = 62.0
-margin_right = 119.0
+margin_left = 69.0
+margin_right = 134.0
 margin_bottom = 42.0
 text = "Level E"
 __meta__ = {
@@ -100,8 +102,8 @@ __meta__ = {
 }
 
 [node name="Level6" type="Button" parent="HBoxContainer2"]
-margin_left = 123.0
-margin_right = 181.0
+margin_left = 138.0
+margin_right = 203.0
 margin_bottom = 42.0
 text = "Level R"
 __meta__ = {
@@ -109,10 +111,10 @@ __meta__ = {
 }
 
 [node name="Blocked2" type="Button" parent="."]
-margin_left = 394.357
-margin_top = 142.078
-margin_right = 470.357
-margin_bottom = 196.078
+margin_left = 416.0
+margin_top = 139.0
+margin_right = 503.0
+margin_bottom = 193.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 __meta__ = {
@@ -120,10 +122,10 @@ __meta__ = {
 }
 
 [node name="Blocked3" type="Button" parent="."]
-margin_left = 638.218
-margin_top = 143.335
-margin_right = 715.218
-margin_bottom = 196.335
+margin_left = 691.0
+margin_top = 142.0
+margin_right = 779.0
+margin_bottom = 195.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 __meta__ = {
@@ -131,10 +133,10 @@ __meta__ = {
 }
 
 [node name="Blocked4" type="Button" parent="."]
-margin_left = 143.0
-margin_top = 342.0
-margin_right = 220.0
-margin_bottom = 397.0
+margin_left = 140.0
+margin_top = 339.0
+margin_right = 227.0
+margin_bottom = 396.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 __meta__ = {
@@ -142,9 +144,9 @@ __meta__ = {
 }
 
 [node name="Blocked5" type="Button" parent="."]
-margin_left = 388.795
+margin_left = 412.0
 margin_top = 340.0
-margin_right = 464.795
+margin_right = 501.0
 margin_bottom = 396.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
@@ -153,10 +155,10 @@ __meta__ = {
 }
 
 [node name="Blocked6" type="Button" parent="."]
-margin_left = 635.0
-margin_top = 341.0
-margin_right = 713.0
-margin_bottom = 398.0
+margin_left = 696.0
+margin_top = 339.0
+margin_right = 782.0
+margin_bottom = 396.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 
