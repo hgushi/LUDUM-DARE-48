@@ -36,7 +36,7 @@ func _physics_process(_delta):
 		$AnimatedSprite.play()
 	
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-	move_and_slide(velocity,Vector2(0,-1))
+	velocity = move_and_slide(velocity,Vector2(0,-1))
 	if health <= 0:
 		emit_signal("death")
 
@@ -57,14 +57,9 @@ func get_direction() -> Vector2:
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	
 	if area.is_in_group("enemy"):
-		var impulse: = 0
-		if area.layers == 5:
-			impulse = 100
-		else:
-			impulse = 200
-		velocity.y = -velocity.y*impulse
+		var impulse = 200
+	velocity.y = -velocity.y*impulse
 	else:
 		if area.is_in_group("d"): d_charge += 1
 		elif area.is_in_group("e"): e_charge += 1
