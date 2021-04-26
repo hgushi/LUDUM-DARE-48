@@ -3,19 +3,19 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
-var speed : = Vector2(230,230)
+var speed_abs : = Vector2(230,230)
 
 var d_charge = 0
 var p_charge = 0
-var r_charge = 0 
+#var r_charge = 0 
 
 signal death
-signal end
+#signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
 	connect("death",self.get_parent(),"death")
-	connect("end",self.get_parent(),"end")
+#	connect("end",self.get_parent(),"end")
 	
 
 func _physics_process(_delta):
@@ -35,29 +35,29 @@ func _physics_process(_delta):
 		$AnimatedSprite.animation = "Walk"
 		$AnimatedSprite.play()
 	
+	velocity = move_and_slide(velocity,Vector2(0,-1))
+	
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
-		if $AnimatedSprite.flip_h == true: velocity.x = -500
-		else: velocity.x = 500
+		if $AnimatedSprite.flip_h == true: velocity.x = 1000
+		else: velocity.x = 1000
 		$AnimatedSprite.animation = "Dash"
 		$AnimatedSprite.play()
 		d_charge -= 1
 		$DashTimer.start()
 	elif $DashTimer.is_stopped():
-		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+		velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
 	
 #	var collision = move_and_collide(velocity, true, true, true)
 #	if collision and collision.collider.is_in_group("5"):
 #		velocity = velocity.bounce(collision.normal)
-	
-	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
 
 	if p_charge == 1: 
 		var new_player = load("res://Assets/Player/Letter_P/Player_P.tscn").instance()
 		new_player.position = position
-		new_player.get_node("Player").p_charge = 1 
-		new_player.get_node("Player").scale = Vector2(2, 2) 
+		new_player.p_charge = 1 
+		new_player.scale = Vector2(2, 2) 
 		get_parent().add_child(new_player)
 		queue_free()
 
@@ -80,8 +80,9 @@ func get_direction() -> Vector2:
 func _on_EnemyDetector_area_entered(area):
 	if area.is_in_group("d"): d_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
-	elif area.is_in_group("r"): r_charge += 1
-	elif area.is_in_group("end"): emit_signal("end")
+	elif area.is_in_group("end"):
+		get_node("ColorRect").visible = true 
+		get_node("ColorRect").next_level(get_parent().level_n)
 #	var impulse = 300
 #	velocity.x = -impulse
 #	velocity.y = -impulse

@@ -7,12 +7,10 @@ func _ready():
 	$tutorial.visible = false
 
 func _physics_process(_delta):
-	var player_p = weakref(get_node("Player_P/Player"))
-	if not !player_p.get_ref():
-		if player_p.get_ref().p_charge == 1: $tutorial.visible = true
+	if $Player.p_charge == 1: $tutorial.visible = true
 
 #func end():
-#	$ColorRect.next_level(level_n)
+#	$Player.get_node("ColorRect").next_level(level_n)
 
 func death():
 # warning-ignore:return_value_discarded

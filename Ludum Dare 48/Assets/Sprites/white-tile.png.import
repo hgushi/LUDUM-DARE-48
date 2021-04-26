@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/R_Run7.png-a01e1451c2c8fe89cb865d351bb0bf8d.stex"
+path="res://.import/white-tile.png-6500728f8f0c2127da39e451fb53b2a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player_Run/R_Run7.png"
-dest_files=[ "res://.import/R_Run7.png-a01e1451c2c8fe89cb865d351bb0bf8d.stex" ]
+source_file="res://Assets/Sprites/white-tile.png"
+dest_files=[ "res://.import/white-tile.png-6500728f8f0c2127da39e451fb53b2a5.stex" ]
 
 [params]
 

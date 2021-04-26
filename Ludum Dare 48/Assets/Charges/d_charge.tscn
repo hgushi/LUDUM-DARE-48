@@ -44,11 +44,12 @@ animations = [ {
 [node name="Area2D" type="Area2D" groups=[
 "d",
 ]]
+pause_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
-frame = 5
+frame = 3
 playing = true

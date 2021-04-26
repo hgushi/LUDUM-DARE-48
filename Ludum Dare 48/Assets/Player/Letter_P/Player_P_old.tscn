@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Player/Letter_E/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Player/Letter_P/Player_P.gd" type="Script" id=3]
+
+[node name="Player" type="Node2D"]
+pause_mode = 2
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="ColorRect" parent="Player" instance=ExtResource( 2 )]
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0

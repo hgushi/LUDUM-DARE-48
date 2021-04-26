@@ -11,13 +11,13 @@ func _ready():
 	$AnimatedSprite.animation = "explode"
 	$AnimatedSprite.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 #	velocity.y += gravity*delta
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 	if is_on_wall(): explode()
 	if is_on_ceiling() or is_on_floor(): explode()
 
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	explode()
 
 func _on_ExplosionCountdown_timeout():

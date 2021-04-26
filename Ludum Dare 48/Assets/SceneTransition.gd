@@ -3,7 +3,7 @@ extends ColorRect
 # Path to the next scene to transition to
 export(String, FILE, "*.tscn") var next_scene_path
 
-var levels = ["res://Levels/Level_D.tscn", "res://Levels/Level_E.tscn", "res://Levels/Level_EPE.tscn", "res://Levels/Level_R.tscn"]
+var levels = ["res://Levels/Level_D.tscn", "res://Levels/Level_P.tscn", "res://Levels/Level_R.tscn"]
 
 func _ready() -> void:
 	# Plays the animation backward to fade in

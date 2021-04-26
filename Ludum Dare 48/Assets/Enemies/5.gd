@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal spring
+#signal spring
 
 #func _physics_process(delta):
 #	pass

@@ -8,19 +8,19 @@ var dash_charge = true
 
 var collision_info
 
-var d_charge = 0
+#var d_charge = 0
 var p_charge = 0
 var r_charge = 0 
 
 signal death
 # warning-ignore:unused_signal
-signal end
+#signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("death",self.get_parent().get_parent(),"death")
+	connect("death", get_parent(),"death")
 # warning-ignore:return_value_discarded
-	connect("end",self.get_parent().get_parent(),"end")
+#	connect("end", get_parent(),"end")
 	
 	if p_charge == 1: get_node("ColorRect").visible = false 
 
@@ -34,12 +34,14 @@ func _physics_process(_delta):
 	elif direction.x == 0:
 		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
-	if Input.is_action_just_pressed("Pause") and p_charge > 0:
+		
+	if Input.is_action_just_pressed("pause") and p_charge > 0:
 		if get_tree().paused == false:
 			p_charge -= 1
 			get_tree().paused = true
-		else:
-			get_tree().paused = false
+			$PauseTimer.start()
+#		else:
+#			get_tree().paused = false
 			
 	collision_info = move_and_collide(velocity, true, true, true)
 	
@@ -47,6 +49,14 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
+
+	if r_charge == 1: 
+		var new_player = load("res://Assets/Player/Letter_R/Player_R.tscn").instance()
+		new_player.position = position
+		new_player.r_charge = 1 
+		new_player.scale = Vector2(2, 2) 
+		get_parent().add_child(new_player)
+		queue_free()
 
 func calculate_velocity(linear_velocity: Vector2, direction: Vector2, _speed: Vector2, jump_interrupted: bool) -> Vector2:
 	var new_velocity: = linear_velocity
@@ -65,13 +75,12 @@ func get_direction() -> Vector2:
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	if area.is_in_group("d"): d_charge += 1
-	elif area.is_in_group("p"): p_charge += 1
+	if area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
 	elif area.is_in_group("end"):
 		get_node("ColorRect").visible = true 
-		emit_signal("end")
-	elif area.is_in_group("5"): bounce()
+		get_node("ColorRect").next_level(get_parent().level_n)
+#		emit_signal("end")
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
