@@ -6,7 +6,6 @@ var health: = 1.0
 var speed : = Vector2(230,230)
 
 var d_charge = 0
-var e_charge = 0
 var p_charge = 0
 var r_charge = 0 
 
@@ -72,7 +71,6 @@ func get_direction() -> Vector2:
 
 func _on_EnemyDetector_area_entered(area):
 	if area.is_in_group("d"): d_charge += 1
-	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
 	elif area.is_in_group("end"): emit_signal("end")
