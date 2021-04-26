@@ -5,7 +5,7 @@ var gravity: = 450.0
 var health: = 1.0
 var speed : = Vector2(230,230)
 
-var d_charge = 100
+var d_charge = 0
 var e_charge = 0
 var p_charge = 0
 var r_charge = 0 
@@ -24,21 +24,22 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.flip_h = false
 		if direction.x < 0:
 			$AnimatedSprite.flip_h = true
-		$AnimatedSprite.animation = "Walk_D"
+		$AnimatedSprite.animation = "Walk"
 		$AnimatedSprite.play()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+	
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
-		if $AnimatedSprite.flip_h == true: velocity.x = -1000
-		else: velocity.x = 1000
+		if $AnimatedSprite.flip_h == true: velocity.x = -500
+		else: velocity.x = 500
 		$AnimatedSprite.animation = "Dash"
 		$AnimatedSprite.play()
 		d_charge -= 1
