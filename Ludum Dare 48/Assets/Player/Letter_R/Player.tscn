@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Player/Letter_R/Player_R.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle1.png" type="Texture" id=2]
@@ -9,12 +9,27 @@
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle8.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle3.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle4.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run4.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run5.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run6.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run9.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run10.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run7.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run8.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run2.png" type="Texture" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Idle_P",
 "speed": 8.0
 } ]
 
@@ -31,7 +46,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "Idle_P"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.41421, -0.707108 )
@@ -48,6 +63,9 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="RunTimer" type="Timer" parent="."]
+wait_time = 5.0
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="area_shape_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_shape_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
