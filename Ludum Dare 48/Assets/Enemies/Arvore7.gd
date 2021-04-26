@@ -4,7 +4,7 @@ var bomerangue = load("res://Assets/Enemies/7.tscn")
 var player
 
 func _ready():
-	player = get_parent().get_node("Player_D")
+	player = get_parent().get_node("Player")
 
 func _on_AtaqueTimer_timeout():
 	var i = 0
