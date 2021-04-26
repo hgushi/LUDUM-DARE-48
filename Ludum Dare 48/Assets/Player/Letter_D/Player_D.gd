@@ -1,12 +1,11 @@
 extends KinematicBody2D
-class_name Player
 
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
 var speed : = Vector2(230,230)
 
-var d_charge = 100
+var d_charge = 0
 var e_charge = 0
 var p_charge = 0
 var r_charge = 0 
@@ -19,24 +18,34 @@ func _ready():
 	connect("death",self.get_parent().get_parent(),"death")
 	connect("end",self.get_parent().get_parent(),"end")
 	
+
 func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.flip_h = false
 		if direction.x < 0:
 			$AnimatedSprite.flip_h = true
-		$AnimatedSprite.animation = "Walk_D"
+		$AnimatedSprite.animation = "Walk"
 		$AnimatedSprite.play()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-		
+	
+	if Input.is_action_just_pressed("dash") and d_charge > 0:
+		if $AnimatedSprite.flip_h == true: velocity.x = -500
+		else: velocity.x = 500
+		$AnimatedSprite.animation = "Dash"
+		$AnimatedSprite.play()
+		d_charge -= 1
+		$DashTimer.start()
+	elif $DashTimer.is_stopped():
+		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
@@ -62,14 +71,13 @@ func _on_EnemyDetector_area_entered(area):
 	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
-	elif area.is_in_group("end"): emit_signal("end")
+	var impulse = 300
+	velocity.x = -impulse
+	velocity.y = -impulse
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
 	if _body.is_in_group("enemy"):
-#		var impulse = 300
-#		velocity.x = -impulse
-#		velocity.y = -impulse
 		emit_signal("death")
 
 #func take_damage(amount):

@@ -1,5 +1,4 @@
 extends KinematicBody2D
-class_name Player
 
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
@@ -19,6 +18,7 @@ func _ready():
 	connect("death",self.get_parent().get_parent(),"death")
 	connect("end",self.get_parent().get_parent(),"end")
 	
+
 func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
@@ -36,7 +36,15 @@ func _physics_process(_delta):
 		$AnimatedSprite.animation = "Walk_D"
 		$AnimatedSprite.play()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-		
+	if Input.is_action_just_pressed("dash") and d_charge > 0:
+		if $AnimatedSprite.flip_h == true: velocity.x = -1000
+		else: velocity.x = 1000
+		$AnimatedSprite.animation = "Dash"
+		$AnimatedSprite.play()
+		d_charge -= 1
+		$DashTimer.start()
+	elif $DashTimer.is_stopped():
+		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
@@ -62,14 +70,13 @@ func _on_EnemyDetector_area_entered(area):
 	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
-	elif area.is_in_group("end"): emit_signal("end")
+	var impulse = 300
+	velocity.x = -impulse
+	velocity.y = -impulse
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
 	if _body.is_in_group("enemy"):
-#		var impulse = 300
-#		velocity.x = -impulse
-#		velocity.y = -impulse
 		emit_signal("death")
 
 #func take_damage(amount):

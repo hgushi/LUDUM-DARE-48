@@ -42,12 +42,12 @@ animations = [ {
 extents = Vector2( 7.09, 7.04952 )
 
 [node name="e_charge" type="Node2D" groups=[
-"d",
+"e",
 ]]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 8 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

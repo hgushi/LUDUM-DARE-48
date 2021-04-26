@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Assets/Player/Letter_E/Player_E.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player/Letter_R/Player_R.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle5.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle2.png" type="Texture" id=4]
