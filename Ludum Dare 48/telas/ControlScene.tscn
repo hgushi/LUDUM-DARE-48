@@ -13,9 +13,9 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 6.67416
+margin_left = -6.77304
 margin_top = -2.0
-margin_right = 1031.67
+margin_right = 976.227
 margin_bottom = 598.0
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {
@@ -38,7 +38,7 @@ margin_right = 428.0
 margin_bottom = 233.0
 rect_scale = Vector2( 4, 4 )
 text = "Arrow keys: walk
-D,E,P e R: powers
+D,P and R: powers
 Space Key: pause"
 align = 1
 __meta__ = {
