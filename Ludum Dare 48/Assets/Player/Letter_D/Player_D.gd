@@ -35,7 +35,6 @@ func _physics_process(_delta):
 			$AnimatedSprite.flip_h = true
 		$AnimatedSprite.animation = "Walk"
 		$AnimatedSprite.play()
-	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
 		if $AnimatedSprite.flip_h == true: velocity.x = -500
@@ -46,6 +45,7 @@ func _physics_process(_delta):
 		$DashTimer.start()
 	elif $DashTimer.is_stopped():
 		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+	
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
@@ -71,12 +71,13 @@ func _on_EnemyDetector_area_entered(area):
 	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
-	var impulse = 300
-	velocity.x = -impulse
-	velocity.y = -impulse
+#	var impulse = 300
+#	velocity.x = -impulse
+#	velocity.y = -impulse
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
+	print("a")
 	if _body.is_in_group("enemy"):
 		emit_signal("death")
 
