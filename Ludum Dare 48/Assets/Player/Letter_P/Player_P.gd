@@ -1,5 +1,4 @@
 extends KinematicBody2D
-class_name Player
 
 var velocity: = Vector2(0,0)
 var gravity: = 400.0
@@ -26,20 +25,26 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle_P"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle_P"
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.flip_h = false
 		if direction.x < 0:
 			$AnimatedSprite.flip_h = true
-		$AnimatedSprite.animation = "Walk_D"
+		$AnimatedSprite.animation = "Walk_P"
 		$AnimatedSprite.play()
-	
-			
-	
+	if Input.is_action_pressed("Pause") and p_charge > 0:
+		if get_tree().paused == false:
+			p_charge -= 1
+			$PauseTimer.start()
+			get_tree().paused = true
+		else:
+			get_tree().paused = false
+		
+		
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
@@ -83,3 +88,6 @@ func _on_EnemyDetector_body_entered(_body):
 func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area_id == 1399:
 		emit_signal("end")
+
+func _on_PauseTimer_timeout():
+	get_tree().paused = false
