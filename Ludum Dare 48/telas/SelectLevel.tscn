@@ -39,10 +39,10 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 138.0
-margin_top = 142.0
-margin_right = 325.0
-margin_bottom = 182.0
+margin_left = 87.0
+margin_top = 232.0
+margin_right = 290.0
+margin_bottom = 272.0
 rect_scale = Vector2( 4, 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,7 +60,7 @@ __meta__ = {
 margin_left = 69.0
 margin_right = 134.0
 margin_bottom = 40.0
-text = "Level E"
+text = "Level P"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,52 +69,16 @@ __meta__ = {
 margin_left = 138.0
 margin_right = 203.0
 margin_bottom = 40.0
-text = "Level E"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-margin_left = 143.0
-margin_top = 341.0
-margin_right = 327.0
-margin_bottom = 383.0
-rect_scale = Vector2( 4, 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Level4" type="Button" parent="HBoxContainer2"]
-margin_right = 65.0
-margin_bottom = 42.0
-text = "Level P"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Level5" type="Button" parent="HBoxContainer2"]
-margin_left = 69.0
-margin_right = 134.0
-margin_bottom = 42.0
-text = "Level E"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Level6" type="Button" parent="HBoxContainer2"]
-margin_left = 138.0
-margin_right = 203.0
-margin_bottom = 42.0
 text = "Level R"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Blocked2" type="Button" parent="."]
-margin_left = 416.0
-margin_top = 139.0
-margin_right = 503.0
-margin_bottom = 193.0
+margin_left = 361.0
+margin_top = 231.0
+margin_right = 448.0
+margin_bottom = 285.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 __meta__ = {
@@ -122,45 +86,15 @@ __meta__ = {
 }
 
 [node name="Blocked3" type="Button" parent="."]
-margin_left = 691.0
-margin_top = 142.0
-margin_right = 779.0
-margin_bottom = 195.0
+margin_left = 640.0
+margin_top = 232.0
+margin_right = 728.0
+margin_bottom = 285.0
 rect_scale = Vector2( 3, 3 )
 text = "Blocked"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Blocked4" type="Button" parent="."]
-margin_left = 140.0
-margin_top = 339.0
-margin_right = 227.0
-margin_bottom = 396.0
-rect_scale = Vector2( 3, 3 )
-text = "Blocked"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Blocked5" type="Button" parent="."]
-margin_left = 412.0
-margin_top = 340.0
-margin_right = 501.0
-margin_bottom = 396.0
-rect_scale = Vector2( 3, 3 )
-text = "Blocked"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Blocked6" type="Button" parent="."]
-margin_left = 696.0
-margin_top = 339.0
-margin_right = 782.0
-margin_bottom = 396.0
-rect_scale = Vector2( 3, 3 )
-text = "Blocked"
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
@@ -169,6 +103,3 @@ autoplay = true
 [connection signal="button_down" from="HBoxContainer/Level1" to="." method="_on_Level1_button_down"]
 [connection signal="button_down" from="HBoxContainer/Level2" to="." method="_on_Level2_button_down"]
 [connection signal="button_down" from="HBoxContainer/Level3" to="." method="_on_Level3_button_down"]
-[connection signal="button_down" from="HBoxContainer2/Level4" to="." method="_on_Level4_button_down"]
-[connection signal="button_down" from="HBoxContainer2/Level5" to="." method="_on_Level5_button_down"]
-[connection signal="button_down" from="HBoxContainer2/Level6" to="." method="_on_Level6_button_down"]
