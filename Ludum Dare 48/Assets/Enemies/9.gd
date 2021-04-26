@@ -10,17 +10,21 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	
 	if distance_walked < slide_range:
-		if is_on_wall(): velocity.x *= -1.0
+		if is_on_wall():
+			velocity.x *= -1.0
+			$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
 		velocity.y = move_and_slide(velocity,Vector2(0,-1)).y
 		distance_walked += abs(velocity.x)
 		
 	else:
 		velocity.x *= -1.0
+		$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
 		velocity.y = move_and_slide(velocity,Vector2(0,-1)).y
 		distance_walked = 0
 
 func _ready():
 	set_physics_process(false)
 	velocity.x = -speed
+	$AnimatedSprite.play()
 
 
