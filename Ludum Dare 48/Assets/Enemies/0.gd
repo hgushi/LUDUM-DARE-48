@@ -11,7 +11,6 @@ onready var AtaqueTimer = $AtaqueTimer
 onready var PauseTimer = $PauseTimer
 
 func _ready():
-	set_physics_process(false)
 	velocity.x = -speed.x
 	PauseTimer.start()
 
@@ -22,7 +21,7 @@ func _physics_process(delta):
 		velocity.x *= -1.0
 	velocity.y = move_and_slide(velocity,Vector2(0,-1)).y
 	if AtaqueTimer.is_stopped():
-		var player_position = get_node("Player").global_position - self.global_position
+		var player_position = get_parent().get_node("Player").global_position - self.global_position
 		var max_cast_to = player_position.normalized()*max_length
 		RayCast2D.cast_to = max_cast_to
 		if RayCast2D.is_colliding():

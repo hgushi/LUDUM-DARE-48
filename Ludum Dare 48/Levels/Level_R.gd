@@ -1,5 +1,4 @@
 extends Node2D
-
 var level_n = 1
 signal next_level
 
@@ -17,3 +16,4 @@ func _physics_process(_delta):
 func death():
 # warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
+

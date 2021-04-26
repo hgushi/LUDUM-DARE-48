@@ -8,6 +8,7 @@
 pause_mode = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="ColorRect" parent="Player" instance=ExtResource( 3 )]

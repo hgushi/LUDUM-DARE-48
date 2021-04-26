@@ -18,6 +18,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Dash",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "Walk_D",
@@ -26,11 +31,6 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Idle_D",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Dash",
 "speed": 5.0
 } ]
 
@@ -43,17 +43,21 @@ extents = Vector2( 5.74036, 7.30212 )
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
+pause_mode = 2
 script = ExtResource( 15 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 1 )
 animation = "Dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 1.41421, -0.707108 )
 shape = SubResource( 2 )
 
 [node name="EnemyDetector" type="Area2D" parent="."]
+visible = false
 position = Vector2( 8, 8 )
 monitorable = false
 collision_mask = 2147483664
@@ -63,10 +67,11 @@ position = Vector2( -6.58579, -8.70711 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 current = true
 
 [node name="PauseTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 20.0
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="area_shape_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_shape_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
