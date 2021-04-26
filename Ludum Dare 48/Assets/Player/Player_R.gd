@@ -14,10 +14,10 @@ signal death
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("death",self.get_parent().get_parent(),"death")
+	connect("death", get_parent(),"death")
 ## warning-ignore:return_value_discarded
-##	connect("end",self.get_parent().get_parent(),"end")
-#	if r_charge == 1: get_node("ColorRect").visible = false 
+#	connect("end",self.get_parent().get_parent(),"end")
+	if r_charge == 1: get_node("ColorRect").visible = false 
 
 func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
