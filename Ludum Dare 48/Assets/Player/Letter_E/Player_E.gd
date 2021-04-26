@@ -15,7 +15,6 @@ signal end
 func _ready():
 # warning-ignore:return_value_discarded
 	connect("death",self.get_parent().get_parent(),"death")
-# warning-ignore:return_value_discarded
 	connect("end",self.get_parent().get_parent(),"end")
 	
 
@@ -24,7 +23,7 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_P"
+		$AnimatedSprite.animation = "Idle_D"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
 		$AnimatedSprite.animation = "Idle_D"
@@ -36,21 +35,12 @@ func _physics_process(_delta):
 		$AnimatedSprite.animation = "Walk_D"
 		$AnimatedSprite.play()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-	if Input.is_action_just_pressed("dash") and d_charge > 0:
-		if $AnimatedSprite.flip_h == true: velocity.x = -1000
-		else: velocity.x = 1000
-		$AnimatedSprite.animation = "Dash"
-		$AnimatedSprite.play()
-		d_charge -= 1
-		$DashTimer.start()
-	elif $DashTimer.is_stopped():
-		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
 
-# warning-ignore:shadowed_variable
-func calculate_velocity(linear_velocity: Vector2, direction: Vector2, _speed: Vector2, jump_interrupted: bool) -> Vector2:
+func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, jump_interrupted: bool) -> Vector2:
 	var new_velocity: = linear_velocity
 	new_velocity.x = direction.x*speed.x
 	new_velocity.y += gravity*get_physics_process_delta_time()
@@ -84,7 +74,7 @@ func _on_EnemyDetector_body_entered(_body):
 #	health -= amount
 #	health = max(health,0.0)
 
-func _on_EnemyDetector_area_shape_entered(area_id, _area, _area_shape, _self_shape):
+func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area_id == 1399:
 		emit_signal("end")
 

@@ -1,17 +1,16 @@
 extends Node2D
 
-var scene : = ""
+var level_n = 0
+signal next_level
 
 func _ready():
-	$d_tutorial.visible = false
+	$tutorial.visible = false
 
 func _physics_process(delta):
-	if $Player.d_charge == 1: $d_tutorial.visible = true
+	if $Player.d_charge == 1: $tutorial.visible = true
 
 func end():
-		for i in range(0, 255, -1):
-			modulate = Color(i, i, i, 255)
-		get_tree().change_scene(scene)
+	$Player.get_node("ColorRect").next_level(level_n)
 
 func death():
 # warning-ignore:return_value_discarded

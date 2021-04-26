@@ -1,16 +1,31 @@
 extends KinematicBody2D
 
-var speed : = Vector2(2000,1000)
+var speed = 200
 var velocity: = Vector2(0,0)
-var gravity: = 300.0
-
-func _physics_process(delta):
-	velocity.y += gravity*delta
-	if is_on_wall():
-		velocity.x *= -1.0
-	velocity.y = move_and_slide(velocity,Vector2(0,-1)).y
+var gravity: = 10
+var direction
 
 func _ready():
-	set_physics_process(false)
-	velocity.x = - speed.x
+#	set_physics_process(false)
+	velocity = direction * speed
+	$AnimatedSprite.animation = "explode"
+	$AnimatedSprite.play()
 
+func _physics_process(delta):
+#	velocity.y += gravity*delta
+	velocity = move_and_slide(velocity,Vector2(0,-1))
+	if is_on_wall(): explode()
+	if is_on_ceiling() or is_on_floor(): explode()
+
+func _on_Area2D_area_entered(area):
+	explode()
+
+func _on_ExplosionCountdown_timeout():
+	explode()
+
+func explode():
+	$AnimatedSprite.animation = "quicksplode"
+	$AnimatedSprite.play()
+	yield(get_tree().create_timer(0.5), "timeout")
+	queue_free()
+	

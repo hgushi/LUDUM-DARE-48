@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Level_D.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Player/Letter_P/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Player/Letter_D/Player_D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ThaleahFat/new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/mock-lvl-d.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/deeper_bg_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Sprites/deeper_fg_tileset.tres" type="TileSet" id=8]
@@ -48,140 +49,75 @@ scale = Vector2( 2.36637, 2.36637 )
 texture = ExtResource( 6 )
 
 [node name="d_charge" parent="." instance=ExtResource( 9 )]
-position = Vector2( 368, 304 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 305.455, 284.909 )
+scale = Vector2( 2, 2 )
 
 [node name="d_charge2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1872, 472 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 1872, 480 )
+scale = Vector2( 2, 2 )
+
+[node name="d_charge5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2458.18, 1294.55 )
+scale = Vector2( 2, 2 )
 
 [node name="d_charge3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1232, 1168 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 1265.45, 1149.09 )
+scale = Vector2( 2, 2 )
 
 [node name="d_charge4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1360, 1000 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 1323.64, 989.091 )
+scale = Vector2( 2, 2 )
 
 [node name="9" parent="." instance=ExtResource( 10 )]
 position = Vector2( 523.636, 523.636 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="10" parent="." instance=ExtResource( 10 )]
-position = Vector2( 887.273, 465.455 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="9-2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 683.636, 654.545 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="9-3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 843.636, 741.818 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 887.273, 465.455 )
 
 [node name="9-4" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1076.36, 741.818 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1134.55, 523.636 )
 
 [node name="9-5" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1090.91, 523.636 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="9-7" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1294.55, 872.727 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="9-8" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1309.09, 1163.64 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1134.55, 756.364 )
 
 [node name="9-10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 901.818, 756.364 )
+
+[node name="9-6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1309.09, 872.727 )
+
+[node name="9-7" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1381.82, 1003.64 )
-scale = Vector2( 0.5, 0.5 )
+
+[node name="9-8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1323.64, 1163.64 )
 
 [node name="9-9" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1323.64, 1396.36 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="8" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1424, 1504 )
-scale = Vector2( 2, 2 )
-
-[node name="8 - atrasado" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1520, 1568 )
-scale = Vector2( 2, 2 )
-
-[node name="Sprite" parent="8 - atrasado" index="0"]
-position = Vector2( 0, -32 )
-
-[node name="CollisionShape2D" parent="8 - atrasado" index="1"]
-position = Vector2( 0, -32 )
-
-[node name="VisibilityEnabler2D" parent="8 - atrasado" index="2"]
-position = Vector2( 0, -32 )
-
-[node name="AttackTimer" parent="8 - atrasado" index="3"]
-wait_time = 3.5
-
-[node name="8-2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1680, 1504 )
-scale = Vector2( 2, 2 )
-
-[node name="8 - atrasado2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1776, 1568 )
-scale = Vector2( 2, 2 )
-
-[node name="Sprite" parent="8 - atrasado2" index="0"]
-position = Vector2( 0, -32 )
-
-[node name="CollisionShape2D" parent="8 - atrasado2" index="1"]
-position = Vector2( 0, -32 )
-
-[node name="VisibilityEnabler2D" parent="8 - atrasado2" index="2"]
-position = Vector2( 0, -32 )
-
-[node name="AttackTimer" parent="8 - atrasado2" index="3"]
-wait_time = 3.5
-
-[node name="8-3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1936, 1504 )
-scale = Vector2( 2, 2 )
-
-[node name="8-atrasado-3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2000, 1568 )
-scale = Vector2( 2, 2 )
-
-[node name="Sprite" parent="8-atrasado-3" index="0"]
-position = Vector2( 0, -32 )
-
-[node name="CollisionShape2D" parent="8-atrasado-3" index="1"]
-position = Vector2( 0, -32 )
-
-[node name="VisibilityEnabler2D" parent="8-atrasado-3" index="2"]
-position = Vector2( 0, -32 )
-
-[node name="AttackTimer" parent="8-atrasado-3" index="3"]
-wait_time = 3.5
+position = Vector2( 1367.27, 1381.82 )
 
 [node name="End" type="Area2D" parent="." groups=[
 "end",
 ]]
-position = Vector2( 2865.45, 1687.27 )
+position = Vector2( 2865.45, 1469.09 )
 collision_layer = 32
 
 [node name="Area2D" type="CollisionShape2D" parent="End" groups=[
 "end",
 ]]
-position = Vector2( -4.02539, 0 )
+position = Vector2( 4.76837e-07, 0.00012207 )
 shape = SubResource( 1 )
 
 [node name="Arvore7" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2458.18, 1163.64 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 760.944, 435.199 )
+position = Vector2( 116.364, 0 )
+scale = Vector2( 2, 2 )
 
-[node name="d_tutorial" type="Label" parent="."]
+[node name="tutorial" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0.588235 )
 margin_left = 218.182
 margin_top = 160.0
@@ -195,8 +131,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[editable path="8 - atrasado"]
+[node name="ColorRect" parent="." instance=ExtResource( 4 )]
 
-[editable path="8 - atrasado2"]
+[node name="8_rapido_1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1687.27, 1512.73 )
+scale = Vector2( 2, 2 )
 
-[editable path="8-atrasado-3"]
+[node name="8_lento_1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1425.45, 1512.73 )
+scale = Vector2( 2, 2 )
+
+[node name="AttackTimer" parent="8_lento_1" index="7"]
+wait_time = 3.5
+
+[node name="8_rapido_2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1512.73, 1512.73 )
+scale = Vector2( 2, 2 )
+
+[node name="8_lento_2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1774.55, 1512.73 )
+scale = Vector2( 2, 2 )
+
+[node name="AttackTimer" parent="8_lento_2" index="7"]
+wait_time = 3.5
+
+[node name="8_rapido_3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1934.55, 1512.73 )
+scale = Vector2( 2, 2 )
+
+[node name="8_lento_3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2007.27, 1512.73 )
+scale = Vector2( 2, 2 )
+
+[node name="AttackTimer" parent="8_lento_3" index="7"]
+wait_time = 3.5
+
+[editable path="8_lento_1"]
+
+[editable path="8_lento_2"]
+
+[editable path="8_lento_3"]
