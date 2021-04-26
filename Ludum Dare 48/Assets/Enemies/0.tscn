@@ -28,7 +28,6 @@ scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
 
 [node name="Beam" type="Sprite" parent="."]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 1.01004, 0.158598 )
 texture = ExtResource( 1 )
@@ -43,11 +42,9 @@ scale = Vector2( 1.6, 1 )
 shape = SubResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 cast_to = Vector2( 100, 0 )
 
 [node name="End" type="Position2D" parent="."]
-visible = false
 
 [node name="AtaqueTimer" type="Timer" parent="."]
 wait_time = 5.0
