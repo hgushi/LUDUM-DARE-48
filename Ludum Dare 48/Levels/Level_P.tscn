@@ -92,14 +92,13 @@ shape = SubResource( 1 )
 
 [node name="tutorial" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0.588235 )
-margin_left = -145.455
-margin_top = 63.1977
-margin_right = 51.5455
-margin_bottom = 96.1977
+margin_left = -131.255
+margin_top = 85.4185
+margin_right = 65.7446
+margin_bottom = 100.418
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = ExtResource( 1 )
-text = "PRESS E WHILE JUMPING TO PUT
-SOME EARTH BENEATH YOU"
+text = "PRESS P TO PAUSE ENEMIES"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -148,15 +147,15 @@ rotation = 0.785398
 scale = Vector2( 3, 3 )
 
 [node name="5-1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 116.364, 1440 )
+position = Vector2( 116.364, 1454.55 )
 scale = Vector2( 2, 2 )
 
 [node name="5-2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 203.636, 1440 )
+position = Vector2( 203.636, 1454.55 )
 scale = Vector2( 2, 2 )
 
 [node name="5-3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 290.909, 1440 )
+position = Vector2( 290.909, 1454.55 )
 scale = Vector2( 2, 2 )
 
 [node name="Player_P" parent="." instance=ExtResource( 3 )]

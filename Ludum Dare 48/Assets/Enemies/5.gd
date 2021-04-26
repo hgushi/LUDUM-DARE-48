@@ -1,17 +1,13 @@
 extends KinematicBody2D
 
-#var speed : = Vector2(1000,1000)
-#var velocity: = Vector2(0,0)
-#var gravity: = 300.0
-#
+signal spring
+
 #func _physics_process(delta):
-#	velocity.y += gravity*delta
-#	if is_on_wall():
-#		velocity.x *= -1.0
-#	velocity.y = move_and_slide(velocity,Vector2(0,-1)).y
+#	pass
 #
 #func _ready():
-#	set_physics_process(false)
-#	velocity.x = - speed.x
-
-
+#	connect("spring", get_parent().get_node("Player_P"),"bounce")
+#
+#
+#func _on_Area2D_area_entered(area):
+#	if area.is_in_group("player"): emit_signal("spring")
