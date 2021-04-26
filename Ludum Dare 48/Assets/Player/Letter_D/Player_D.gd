@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
-var speed : = Vector2(230,230)
+var speed_abs : = Vector2(230,230)
 
 var d_charge = 0
 var p_charge = 0
@@ -43,7 +43,7 @@ func _physics_process(_delta):
 		d_charge -= 1
 		$DashTimer.start()
 	elif $DashTimer.is_stopped():
-		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+		velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
 	
 #	var collision = move_and_collide(velocity, true, true, true)
 #	if collision and collision.collider.is_in_group("5"):
@@ -56,8 +56,8 @@ func _physics_process(_delta):
 	if p_charge == 1: 
 		var new_player = load("res://Assets/Player/Letter_P/Player_P.tscn").instance()
 		new_player.position = position
-		new_player.get_node("Player").p_charge = 1 
-		new_player.get_node("Player").scale = Vector2(2, 2) 
+		new_player.p_charge = 1 
+		new_player.scale = Vector2(2, 2) 
 		get_parent().add_child(new_player)
 		queue_free()
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/Level_D.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/Letter_D/Player_D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ThaleahFat/new_dynamicfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/mock-lvl-d.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/deeper_bg_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Sprites/deeper_fg_tileset.tres" type="TileSet" id=8]
@@ -130,8 +129,6 @@ uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ColorRect" parent="." instance=ExtResource( 4 )]
 
 [node name="8_rapido_1" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1687.27, 1512.73 )

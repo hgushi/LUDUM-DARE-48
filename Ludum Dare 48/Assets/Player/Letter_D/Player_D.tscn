@@ -78,5 +78,4 @@ margin_top = -300.0
 margin_right = 512.0
 margin_bottom = 300.0
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
-[connection signal="area_shape_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_shape_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

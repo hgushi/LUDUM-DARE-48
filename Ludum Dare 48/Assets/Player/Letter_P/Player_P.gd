@@ -18,9 +18,9 @@ signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("death",self.get_parent().get_parent(),"death")
+	connect("death", get_parent(),"death")
 # warning-ignore:return_value_discarded
-	connect("end",self.get_parent().get_parent(),"end")
+	connect("end", get_parent(),"end")
 	
 	if p_charge == 1: get_node("ColorRect").visible = false 
 

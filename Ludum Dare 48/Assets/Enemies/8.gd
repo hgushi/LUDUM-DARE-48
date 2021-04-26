@@ -27,3 +27,11 @@ func _physics_process(delta):
 		$Jumper.position.y += gravity * delta
 		$JumperCollision2.position.y += gravity * 2 * delta
 		$Jumper2.position.y += gravity * 2 * delta
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	$AttackTimer.start()
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	$AttackTimer.stop()
