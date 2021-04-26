@@ -15,8 +15,8 @@ signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("death",self.get_parent().get_parent(),"death")
-	connect("end",self.get_parent().get_parent(),"end")
+	connect("death",self.get_parent(),"death")
+	connect("end",self.get_parent(),"end")
 	
 
 func _physics_process(_delta):
@@ -77,14 +77,11 @@ func _on_EnemyDetector_area_entered(area):
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
-	print("a")
-	if _body.is_in_group("enemy"):
-		emit_signal("death")
+	if _body.is_in_group("enemy"): emit_signal("death")
 
 #func take_damage(amount):
 #	health -= amount
 #	health = max(health,0.0)
 
 func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
-	if area_id == 1399:
-		emit_signal("end")
+	if area_id == 1399: emit_signal("end")
