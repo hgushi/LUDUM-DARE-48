@@ -45,9 +45,9 @@ func _physics_process(_delta):
 	elif $DashTimer.is_stopped():
 		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	
-	var collision = move_and_collide(velocity, true, true, true)
-	if collision and collision.collider.is_in_group("5"):
-		velocity = velocity.bounce(collision.normal)
+#	var collision = move_and_collide(velocity, true, true, true)
+#	if collision and collision.collider.is_in_group("5"):
+#		velocity = velocity.bounce(collision.normal)
 	
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
