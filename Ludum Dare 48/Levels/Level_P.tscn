@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ThaleahFat/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Enemies/5.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Player/Letter_P/Player_P.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Player/Letter_D/Player_D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Charges/p_charge.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Enemies/4.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Sprites/deeper_bg_tileset.tres" type="TileSet" id=7]
@@ -76,8 +75,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" parent="." instance=ExtResource( 4 )]
-
 [node name="4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 378.182, 1018.18 )
 rotation = -0.785398
@@ -135,46 +132,66 @@ scale = Vector2( 2, 2 )
 position = Vector2( 290.909, 1454.55 )
 scale = Vector2( 2, 2 )
 
-[node name="Player_P" parent="." instance=ExtResource( 3 )]
-position = Vector2( -233.657, 86.6543 )
-scale = Vector2( 2, 2 )
-
-[node name="p_charge" parent="." instance=ExtResource( 5 )]
+[node name="p_charge" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( -72.7273, 218.182 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge2" parent="." instance=ExtResource( 5 )]
+[node name="p_charge2" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 247.273, 261.818 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge3" parent="." instance=ExtResource( 5 )]
+[node name="p_charge3" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 130.909, 436.364 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge4" parent="." instance=ExtResource( 5 )]
+[node name="p_charge4" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 43.6364, 741.818 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge6" parent="." instance=ExtResource( 5 )]
+[node name="p_charge6" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 203.636, 1003.64 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge7" parent="." instance=ExtResource( 5 )]
+[node name="p_charge7" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 116.364, 1178.18 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge8" parent="." instance=ExtResource( 5 )]
+[node name="p_charge8" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 247.273, 1294.55 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge9" parent="." instance=ExtResource( 5 )]
+[node name="p_charge9" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 43.6364, 1410.91 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge10" parent="." instance=ExtResource( 5 )]
+[node name="p_charge10" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 363.636, 1425.45 )
 scale = Vector2( 2, 2 )
 
-[node name="p_charge5" parent="." instance=ExtResource( 5 )]
+[node name="p_charge5" parent="." groups=[
+"p",
+] instance=ExtResource( 5 )]
 position = Vector2( 363.636, 916.364 )
+scale = Vector2( 2, 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -232.727, -72.7273 )
 scale = Vector2( 2, 2 )

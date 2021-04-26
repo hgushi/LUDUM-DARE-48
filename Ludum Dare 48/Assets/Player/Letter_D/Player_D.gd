@@ -53,6 +53,14 @@ func _physics_process(_delta):
 #	if health <= 0:
 #		emit_signal("death")
 
+	if p_charge == 1: 
+		var new_player = load("res://Assets/Player/Letter_P/Player_P.tscn").instance()
+		new_player.position = position
+		new_player.get_node("Player").p_charge = 1 
+		new_player.get_node("Player").scale = Vector2(2, 2) 
+		get_parent().add_child(new_player)
+		queue_free()
+
 func calculate_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, jump_interrupted: bool) -> Vector2:
 	var new_velocity: = linear_velocity
 	new_velocity.x = direction.x*speed.x

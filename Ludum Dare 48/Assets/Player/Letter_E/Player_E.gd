@@ -2,7 +2,7 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
-var speed : = Vector2(230,230)
+var speed_abs : = Vector2(230,230)
 
 var d_charge = 100
 var e_charge = 0
@@ -34,7 +34,7 @@ func _physics_process(_delta):
 			$AnimatedSprite.flip_h = true
 		$AnimatedSprite.animation = "Walk"
 		$AnimatedSprite.play()
-	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+	velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
 
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
@@ -74,7 +74,7 @@ func _on_EnemyDetector_body_entered(_body):
 #	health -= amount
 #	health = max(health,0.0)
 
-func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
-	if area_id == 1399:
-		emit_signal("end")
+#func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
+#	if area_id == 1399:
+#		emit_signal("end")
 

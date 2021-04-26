@@ -22,8 +22,9 @@ func _ready():
 # warning-ignore:return_value_discarded
 	connect("end",self.get_parent().get_parent(),"end")
 	
+	if p_charge == 1: get_node("ColorRect").visible = false 
 
-func _physics_process(_delta):
+func _physics_process(_delta):	
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
 	
@@ -67,10 +68,10 @@ func _on_EnemyDetector_area_entered(area):
 	if area.is_in_group("d"): d_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
-	elif area.is_in_group("5"):
-		var impulse = 1000
-		velocity.x = -impulse
-		velocity.y = -impulse
+	elif area.is_in_group("end"):
+		get_node("ColorRect").visible = true 
+		emit_signal("end")
+	elif area.is_in_group("5"): bounce()
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
@@ -84,7 +85,7 @@ func _on_EnemyDetector_body_entered(_body):
 #	health = max(health,0.0)
 
 func bounce():
-	var impulse = 900
+	var impulse = 750
 	velocity.x = -impulse
 	velocity.y = -impulse
 
