@@ -28,10 +28,10 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_P"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle_P"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
 	if Input.is_action_just_pressed("Pause") and p_charge > 0:
 		if get_tree().paused == false:
