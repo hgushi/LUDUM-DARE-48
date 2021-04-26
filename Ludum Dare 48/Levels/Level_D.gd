@@ -10,12 +10,3 @@ func end():
 func death():
 # warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
-
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_P:
-			if get_tree().paused == false:
-				get_tree().paused = true
-			else:
-				get_tree().paused = false
-				
