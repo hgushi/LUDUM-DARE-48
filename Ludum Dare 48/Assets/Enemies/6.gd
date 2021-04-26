@@ -26,6 +26,6 @@ func _on_ExplosionCountdown_timeout():
 func explode():
 	$AnimatedSprite.animation = "quicksplode"
 	$AnimatedSprite.play()
-	yield(get_tree().create_timer(0.5), "timeout")
+#	yield(get_tree().create_timer(0.5), "timeout")
 	queue_free()
 	
