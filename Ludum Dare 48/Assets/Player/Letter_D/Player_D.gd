@@ -71,6 +71,7 @@ func _on_EnemyDetector_area_entered(area):
 	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
+	elif area.is_in_group("end"): emit_signal("end")
 #	var impulse = 300
 #	velocity.x = -impulse
 #	velocity.y = -impulse
@@ -84,4 +85,5 @@ func _on_EnemyDetector_body_entered(_body):
 #	health = max(health,0.0)
 
 func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
-	if area_id == 1399: emit_signal("end")
+#	if area_id == 1399: emit_signal("end")
+	if area.is_in_group("end"): emit_signal("end")

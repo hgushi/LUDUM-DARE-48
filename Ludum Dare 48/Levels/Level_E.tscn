@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Levels/Level_D.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Player/Letter_D/Player_D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ThaleahFat/new_dynamicfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level_E.gd" type="Script" id=4]
 [ext_resource path="res://Assets/mock-lvl-d.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/deeper_bg_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Sprites/deeper_fg_tileset.tres" type="TileSet" id=8]
@@ -14,10 +14,10 @@
 
 [sub_resource type="LineShape2D" id=1]
 
-[node name="Level_D" type="Node2D"]
+[node name="Level_E" type="Node2D"]
 position = Vector2( 416, 224 )
 scale = Vector2( 1.1, 1.1 )
-script = ExtResource( 1 )
+script = ExtResource( 4 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 pause_mode = 2
@@ -184,7 +184,7 @@ shape = SubResource( 1 )
 position = Vector2( 2458.18, 1163.64 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2749.09, 1381.82 )
+position = Vector2( 2138.18, 1338.18 )
 scale = Vector2( 2, 2 )
 
 [node name="d_tutorial" type="Label" parent="."]
@@ -201,7 +201,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" parent="." instance=ExtResource( 4 )]
+[node name="ColorRect" parent="." instance=ExtResource( 1 )]
 
 [editable path="8 - atrasado"]
 

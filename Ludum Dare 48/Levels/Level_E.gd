@@ -1,6 +1,6 @@
 extends Node2D
 
-var level_n = 0
+var level_n = 1
 signal next_level
 
 func _ready():
