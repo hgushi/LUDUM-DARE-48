@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Player/Letter_D/Player_D.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Player_D/D_Idle3.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/Sprites/Player_D/D_Run3.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/Player_D/D_Dash5.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Sprites/Player_D/D_Dash1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/SceneTransition.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,15 +24,15 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Dash",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -67,6 +68,8 @@ current = true
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ColorRect" parent="." instance=ExtResource( 16 )]
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="area_shape_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_shape_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

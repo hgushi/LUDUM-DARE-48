@@ -17,4 +17,4 @@ func transition_to(_next_scene := next_scene_path) -> void:
 	get_tree().change_scene(_next_scene)
 
 func next_level(level_n) -> void:
-  transition_to(levels[level_n + 1])
+	transition_to(levels[level_n + 1])

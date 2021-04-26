@@ -171,13 +171,13 @@ wait_time = 3.5
 [node name="End" type="Area2D" parent="." groups=[
 "end",
 ]]
-position = Vector2( 2865.45, 1687.27 )
+position = Vector2( 2865.45, 1469.09 )
 collision_layer = 32
 
 [node name="Area2D" type="CollisionShape2D" parent="End" groups=[
 "end",
 ]]
-position = Vector2( -4.02539, 0 )
+position = Vector2( 4.76837e-07, 0.00012207 )
 shape = SubResource( 1 )
 
 [node name="Arvore7" parent="." instance=ExtResource( 12 )]
