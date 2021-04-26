@@ -19,11 +19,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
@@ -32,7 +27,12 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Dash",
-"speed": 5.0
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -48,7 +48,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Dash"
+animation = "Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.41421, -0.707108 )
@@ -70,6 +70,13 @@ current = true
 one_shot = true
 
 [node name="ColorRect" parent="." instance=ExtResource( 16 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="area_shape_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_shape_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

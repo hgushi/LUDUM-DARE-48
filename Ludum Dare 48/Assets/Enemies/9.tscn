@@ -23,6 +23,7 @@ animations = [ {
 "enemy",
 ]]
 position = Vector2( 480.996, 243.677 )
+scale = Vector2( 2, 2 )
 collision_layer = 16
 script = ExtResource( 2 )
 

@@ -1,21 +1,37 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle4.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle6.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle8.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle5.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle7.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/Player_Pause/P_Idle3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Idle4.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Idle5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Run3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Dash5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Idle1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Idle2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Dash1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Dash3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Run2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Dash2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Idle3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Run1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Run4.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Player_D/D_Dash4.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Player/Letter_P/Player_P.gd" type="Script" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 8.0
+"name": "Walk_D",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle_D",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Dash",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -31,7 +47,7 @@ script = ExtResource( 15 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "Dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.41421, -0.707108 )
