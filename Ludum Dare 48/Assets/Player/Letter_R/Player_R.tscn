@@ -1,0 +1,58 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Player/Letter_R/Player_R.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run8.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run4.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run7.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run9.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run6.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run5.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Player_Run/R_Run10.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Run",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.78054, 7.18038 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.74036, 7.30212 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle_P"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.41421, -0.707108 )
+shape = SubResource( 2 )
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+position = Vector2( 8, 8 )
+monitorable = false
+collision_mask = 2147483664
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2( -6.58579, -8.70711 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="RunTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+[connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

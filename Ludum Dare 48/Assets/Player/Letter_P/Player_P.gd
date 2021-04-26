@@ -8,19 +8,19 @@ var dash_charge = true
 
 var collision_info
 
-var d_charge = 0
+#var d_charge = 0
 var p_charge = 0
 var r_charge = 0 
 
 signal death
 # warning-ignore:unused_signal
-signal end
+#signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
 	connect("death", get_parent(),"death")
 # warning-ignore:return_value_discarded
-	connect("end", get_parent(),"end")
+#	connect("end", get_parent(),"end")
 	
 	if p_charge == 1: get_node("ColorRect").visible = false 
 
@@ -50,6 +50,14 @@ func _physics_process(_delta):
 #	if health <= 0:
 #		emit_signal("death")
 
+	if r_charge == 1: 
+		var new_player = load("res://Assets/Player/Letter_R/Player_R.tscn").instance()
+		new_player.position = position
+		new_player.r_charge = 1 
+		new_player.scale = Vector2(2, 2) 
+		get_parent().add_child(new_player)
+		queue_free()
+
 func calculate_velocity(linear_velocity: Vector2, direction: Vector2, _speed: Vector2, jump_interrupted: bool) -> Vector2:
 	var new_velocity: = linear_velocity
 	new_velocity.x = direction.x*speed.x
@@ -67,8 +75,7 @@ func get_direction() -> Vector2:
 	)
 
 func _on_EnemyDetector_area_entered(area):
-	if area.is_in_group("d"): d_charge += 1
-	elif area.is_in_group("p"): p_charge += 1
+	if area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
 	elif area.is_in_group("end"):
 		get_node("ColorRect").visible = true 
