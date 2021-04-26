@@ -28,6 +28,7 @@ extents = Vector2( 5.74036, 7.30212 )
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -51,7 +52,7 @@ shape = SubResource( 3 )
 current = true
 
 [node name="PauseTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="ColorRect" parent="." instance=ExtResource( 10 )]
 margin_left = -512.0

@@ -34,12 +34,14 @@ func _physics_process(_delta):
 	elif direction.x == 0:
 		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
-	if Input.is_action_just_pressed("Pause") and p_charge > 0:
+		
+	if Input.is_action_just_pressed("pause") and p_charge > 0:
 		if get_tree().paused == false:
 			p_charge -= 1
 			get_tree().paused = true
-		else:
-			get_tree().paused = false
+			$PauseTimer.start()
+#		else:
+#			get_tree().paused = false
 			
 	collision_info = move_and_collide(velocity, true, true, true)
 	
@@ -70,8 +72,8 @@ func _on_EnemyDetector_area_entered(area):
 	elif area.is_in_group("r"): r_charge += 1
 	elif area.is_in_group("end"):
 		get_node("ColorRect").visible = true 
-		emit_signal("end")
-	elif area.is_in_group("5"): bounce()
+		get_node("ColorRect").next_level(get_parent().level_n)
+#		emit_signal("end")
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):

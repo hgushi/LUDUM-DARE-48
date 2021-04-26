@@ -10,12 +10,12 @@ var p_charge = 0
 var r_charge = 0 
 
 signal death
-signal end
+#signal end
 
 func _ready():
 # warning-ignore:return_value_discarded
 	connect("death",self.get_parent(),"death")
-	connect("end",self.get_parent(),"end")
+#	connect("end",self.get_parent(),"end")
 	
 
 func _physics_process(_delta):
@@ -81,7 +81,9 @@ func _on_EnemyDetector_area_entered(area):
 	if area.is_in_group("d"): d_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
-	elif area.is_in_group("end"): emit_signal("end")
+	elif area.is_in_group("end"):
+		get_node("ColorRect").visible = true 
+		get_node("ColorRect").next_level(get_parent().level_n)
 #	var impulse = 300
 #	velocity.x = -impulse
 #	velocity.y = -impulse

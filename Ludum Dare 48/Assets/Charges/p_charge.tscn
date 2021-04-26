@@ -42,9 +42,11 @@ animations = [ {
 extents = Vector2( 7.09, 7.04952 )
 
 [node name="Area2D" type="Area2D"]
+pause_mode = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 8 )
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -11,7 +11,7 @@ func _physics_process(_delta):
 		if $Player.p_charge == 1: $tutorial.visible = true
 
 #func end():
-#	$ColorRect.next_level(level_n)
+#	$Player.get_node("ColorRect").next_level(level_n)
 
 func death():
 # warning-ignore:return_value_discarded
