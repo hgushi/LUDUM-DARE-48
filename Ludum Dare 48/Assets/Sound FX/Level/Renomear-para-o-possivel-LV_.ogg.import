@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Renomear-para-o-possivel-LV_.ogg-48388b731cfcb28f13fd02fe8de5f825.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound FX/Level/Renomear-para-o-possivel-LV_.ogg"
+dest_files=[ "res://.import/Renomear-para-o-possivel-LV_.ogg-48388b731cfcb28f13fd02fe8de5f825.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
