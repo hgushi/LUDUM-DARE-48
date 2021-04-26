@@ -6,8 +6,9 @@ var health: = 1.0
 var speed : = Vector2(210,210)
 var dash_charge = true
 
+var collision_info
+
 var d_charge = 0
-var e_charge = 0
 var p_charge = 0
 var r_charge = 0 
 
@@ -27,10 +28,10 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_P"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle_P"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
 	if Input.is_action_just_pressed("Pause") and p_charge > 0:
 		if get_tree().paused == false:
@@ -38,6 +39,9 @@ func _physics_process(_delta):
 			get_tree().paused = true
 		else:
 			get_tree().paused = false
+			
+	collision_info = move_and_collide(velocity, true, true, true)
+	
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
@@ -61,22 +65,28 @@ func get_direction() -> Vector2:
 
 func _on_EnemyDetector_area_entered(area):
 	if area.is_in_group("d"): d_charge += 1
-	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
-	var impulse = 300
-	velocity.x = -impulse
-	velocity.y = -impulse
+	elif area.is_in_group("5"):
+		var impulse = 1000
+		velocity.x = -impulse
+		velocity.y = -impulse
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
 	if _body.is_in_group("enemy"):
 		emit_signal("death")
+	if _body.is_in_group("5"):
+		bounce()
 
 #func take_damage(amount):
 #	health -= amount
 #	health = max(health,0.0)
 
+func bounce():
+	var impulse = 900
+	velocity.x = -impulse
+	velocity.y = -impulse
 
 func _on_PauseTimer_timeout():
 	get_tree().paused = false

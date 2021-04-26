@@ -23,16 +23,16 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle_D"
+		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.flip_h = false
 		if direction.x < 0:
 			$AnimatedSprite.flip_h = true
-		$AnimatedSprite.animation = "Walk_D"
+		$AnimatedSprite.animation = "Walk"
 		$AnimatedSprite.play()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 

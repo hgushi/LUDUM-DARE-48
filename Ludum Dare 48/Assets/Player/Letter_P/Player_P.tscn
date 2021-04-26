@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Player/Letter_E/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Player/Letter_P/Player_P.gd" type="Script" id=2]
 
 [node name="Player_P" type="Node2D"]
 pause_mode = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 188.988, 89.7829 )
+script = ExtResource( 2 )
