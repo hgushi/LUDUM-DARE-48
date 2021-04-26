@@ -18,20 +18,20 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Dash",
-"speed": 8.0
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -47,7 +47,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Walk"
+animation = "Dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.41421, -0.707108 )
