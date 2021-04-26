@@ -7,7 +7,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if not $tutorial.visible:
-		if $Player.p_charge == 1: $tutorial.visible = true
+		if $Player.r_charge == 1: $tutorial.visible = true
 
 #func end():
 #	$ColorRect.next_level(level_n)

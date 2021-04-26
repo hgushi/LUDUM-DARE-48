@@ -50,14 +50,32 @@ position = Vector2( 966.166, 866.542 )
 [node name="3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 833.874, 866.542 )
 
-[node name="2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 629.767, 507.948 )
-
 [node name="6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1025.38, 767.008 )
 
-[node name="1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 525.193, 509.207 )
+[node name="1-1" parent="." instance=ExtResource( 6 )]
+position = Vector2( 528, 520 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="1-2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 552, 520 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="1-3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 576, 520 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="1-4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 624, 520 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="1-5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 648, 520 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="1-6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 672, 520 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 772.137, 768.268 )
@@ -81,13 +99,13 @@ position = Vector2( 1357.89, 876.505 )
 position = Vector2( 1245.63, 734.952 )
 
 [node name="r_charge" parent="." instance=ExtResource( 10 )]
-position = Vector2( 77.2516, 522.245 )
+position = Vector2( 144, 504 )
 
 [node name="r_charge2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 453.041, 519.866 )
+position = Vector2( 448, 504 )
 
 [node name="r_charge3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 712.288, 872.154 )
+position = Vector2( 720, 856 )
 
 [node name="r_charge4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1330.08, 754.423 )
