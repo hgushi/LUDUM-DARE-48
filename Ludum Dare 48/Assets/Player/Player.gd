@@ -35,6 +35,7 @@ func _physics_process(_delta):
 			$AnimatedSprite.flip_h = true
 		$AnimatedSprite.animation = "Walk_D"
 		$AnimatedSprite.play()
+	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
 		if $AnimatedSprite.flip_h == true: velocity.x = -1000
@@ -45,7 +46,7 @@ func _physics_process(_delta):
 		$DashTimer.start()
 	elif $DashTimer.is_stopped():
 		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-	
+		
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
