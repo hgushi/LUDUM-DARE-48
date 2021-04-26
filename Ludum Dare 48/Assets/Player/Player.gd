@@ -5,9 +5,8 @@ var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
 var speed : = Vector2(230,230)
-var dash_charge = true
 
-var d_charge = 0
+var d_charge = 100
 var e_charge = 0
 var p_charge = 0
 var r_charge = 0 
@@ -19,6 +18,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 	connect("death",self.get_parent().get_parent(),"death")
 	connect("end",self.get_parent().get_parent(),"end")
+	
 func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
@@ -36,7 +36,7 @@ func _physics_process(_delta):
 		$AnimatedSprite.animation = "Walk_D"
 		$AnimatedSprite.play()
 	
-	if Input.is_action_pressed("dash") and d_charge > 0:
+	if Input.is_action_just_pressed("dash") and d_charge > 0:
 		if $AnimatedSprite.flip_h == true: velocity.x = -1000
 		else: velocity.x = 1000
 		$AnimatedSprite.animation = "Dash"
@@ -71,6 +71,7 @@ func _on_EnemyDetector_area_entered(area):
 	elif area.is_in_group("e"): e_charge += 1
 	elif area.is_in_group("p"): p_charge += 1
 	elif area.is_in_group("r"): r_charge += 1
+	elif area.is_in_group("end"): emit_signal("end")
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
@@ -83,7 +84,6 @@ func _on_EnemyDetector_body_entered(_body):
 #func take_damage(amount):
 #	health -= amount
 #	health = max(health,0.0)
-
 
 func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area_id == 1399:

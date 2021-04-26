@@ -5,7 +5,7 @@ func _on_AttackTimer_timeout():
 	$CollisionShape2D.position.y -= 32
 	$Sprite.scale.y *= 2
 	$Sprite.position.y -= 32
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(1.0), "timeout")
 	$CollisionShape2D.shape.extents.y /= 2
 	$CollisionShape2D.position.y += 32
 	$Sprite.scale.y /= 2
