@@ -1,5 +1,4 @@
 extends KinematicBody2D
-
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
@@ -86,3 +85,4 @@ func _on_EnemyDetector_body_entered(_body):
 func _on_EnemyDetector_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area_id == 1399:
 		emit_signal("end")
+
