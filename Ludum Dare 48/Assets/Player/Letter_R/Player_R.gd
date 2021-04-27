@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
-var speed : = Vector2(230,230)
+var speed : = Vector2(230,450)
 
 #var d_charge = 0
 #var p_charge = 0

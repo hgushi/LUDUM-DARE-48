@@ -42,7 +42,9 @@ margin_top = -1.51489
 margin_right = -6.58984
 margin_bottom = -1.51489
 
-[node name="d" type="Button" parent="."]
+[node name="d" type="Button" parent="." groups=[
+"enemy",
+]]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 504.0
 margin_top = 224.0
