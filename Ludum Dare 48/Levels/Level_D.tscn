@@ -124,6 +124,7 @@ shape = SubResource( 1 )
 
 [node name="Arvore7" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2458.18, 1163.64 )
+scale = Vector2( 2, 2 )
 
 [node name="tutorial" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0.588235 )
