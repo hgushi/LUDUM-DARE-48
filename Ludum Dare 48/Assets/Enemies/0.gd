@@ -16,7 +16,7 @@ func _ready():
 	beam.visible = false
 
 func _physics_process(delta):
-	var box = get_node("Beam").get_node("Area2D").get_node("CollisionShape2D")
+	var box = get_node("Beam").get_node("Area2D").get_node("CollisionShape2D").get_shape()
 	velocity.y += gravity*delta
 	if is_on_wall():
 		velocity.x *= -1.0
