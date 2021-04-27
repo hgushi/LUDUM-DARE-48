@@ -19,15 +19,15 @@ func _ready():
 ##	connect("end",self.get_parent().get_parent(),"end")
 #	if r_charge == 1: get_node("ColorRect").visible = false 
 
-func _physics_process(_delta):
+func _physics_process(_delta):	
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
 	
 	if not is_on_floor():
+		$AnimatedSprite.animation = "Run"
 		$AnimatedSprite.stop()
-	else:
-		$AnimatedSprite.flip_h = false
-		if direction.x < 0: $AnimatedSprite.flip_h = true
+	elif direction.x == 0:
+		$AnimatedSprite.animation = "Run"
 		$AnimatedSprite.play()
 
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
