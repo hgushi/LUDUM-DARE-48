@@ -3,9 +3,11 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
+
 var speed : = Vector2(300,450)
 onready var AnimatedSprite = $AnimatedSprite
 onready var RunTimer = $RunTimer
+
 #var d_charge = 0
 #var p_charge = 0
 var r_charge = 0 
@@ -25,11 +27,13 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
+
 		AnimatedSprite.animation = "Run"
 		AnimatedSprite.stop()
 	elif direction.x == 0:
 		AnimatedSprite.animation = "Run"
 		AnimatedSprite.play()
+
 
 	#velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	

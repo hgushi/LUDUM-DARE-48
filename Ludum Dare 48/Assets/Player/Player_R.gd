@@ -15,7 +15,11 @@ signal death
 func _ready():
 # warning-ignore:return_value_discarded
 	connect("death", get_parent(),"death")
+<<<<<<< HEAD
 # warning-ignore:return_value_discarded
+=======
+## warning-ignore:return_value_discarded
+>>>>>>> 495c085c2c0c7bcf2f448d6d3909b08b5cf27b9c
 #	connect("end",self.get_parent().get_parent(),"end")
 	if r_charge == 1: get_node("ColorRect").visible = false 
 
@@ -30,6 +34,7 @@ func _physics_process(_delta):
 		if direction.x < 0: $AnimatedSprite.flip_h = true
 		$AnimatedSprite.play()
 
+<<<<<<< HEAD
 	#velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	
 	if Input.is_action_just_pressed("run") and r_charge > 0:
@@ -44,6 +49,17 @@ func _physics_process(_delta):
 		var _speed : = Vector2(600,600)
 		velocity = _speed
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+=======
+	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+	
+	if Input.is_action_just_pressed("run") and r_charge > 0:
+		var speed : = Vector2(600,600)
+		$AnimatedSprite.play()
+		r_charge -= 1
+		$RunTimer.start()
+	elif $RunTimer.is_stopped():
+		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+>>>>>>> 495c085c2c0c7bcf2f448d6d3909b08b5cf27b9c
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")
