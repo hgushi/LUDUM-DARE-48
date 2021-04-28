@@ -128,10 +128,10 @@ scale = Vector2( 2, 2 )
 
 [node name="tutorial" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0.588235 )
-margin_left = 218.182
-margin_top = 160.0
-margin_right = 371.182
-margin_bottom = 175.0
+margin_left = 211.754
+margin_top = 129.144
+margin_right = 364.754
+margin_bottom = 162.144
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = ExtResource( 3 )
 text = "PRESS D TO DASH

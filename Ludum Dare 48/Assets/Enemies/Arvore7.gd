@@ -15,7 +15,7 @@ func _on_AtaqueTimer_timeout():
 
 		var projetil = bomerangue.instance()
 		projetil.direction = Vector2(cos(rotation), sin(rotation))
-		projetil.scale = Vector2(0.5,0.5)
+		projetil.scale = Vector2(1,1)
 		self.add_child(projetil)
 		
 		i += 1

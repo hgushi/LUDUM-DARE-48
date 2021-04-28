@@ -7,9 +7,12 @@ onready var JumperCollision = $JumperCollision
 onready var JumperCollision2 = $JumperCollision2
 onready var Jumper = $Jumper
 onready var Jumper2 = $Jumper2
+
 func _on_AttackTimer_timeout():
 	jump = true
-	yield(get_tree().create_timer(1.0), "timeout")
+	$RetreatTimer.start()
+
+func _on_RetreatTimer_timeout():
 	jump = false
 	
 #var speed : = Vector2(500,1000)

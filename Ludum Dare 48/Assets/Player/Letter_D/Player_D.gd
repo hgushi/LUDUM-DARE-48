@@ -36,16 +36,17 @@ func _physics_process(_delta):
 		AnimatedSprite.play()
 
 	#velocity = move_and_slide(velocity,Vector2(0,-1))
-	velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
+#	velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
-		if AnimatedSprite.flip_h == true: velocity.x = 1000
-		else: velocity.x = 1000
+		if AnimatedSprite.flip_h == true: velocity.x = -1000
+		else: velocity.x = +1000
 		AnimatedSprite.animation = "Dash"
 		AnimatedSprite.play()
 		d_charge -= 1
-		#$DashTimer.start()
-	#elif $DashTimer.is_stopped():
-		#velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
+		$DashTimer.start()
+	elif $DashTimer.is_stopped():
+		velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
+	
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	var collision = move_and_collide(velocity, true, true, true)
 #	if collision and collision.collider.is_in_group("5"):
