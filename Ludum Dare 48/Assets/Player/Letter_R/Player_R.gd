@@ -3,8 +3,9 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
-var speed : = Vector2(230,230)
-
+var speed : = Vector2(300,450)
+onready var AnimatedSprite = $AnimatedSprite
+onready var RunTimer = $RunTimer
 #var d_charge = 0
 #var p_charge = 0
 var r_charge = 0 
@@ -16,29 +17,34 @@ func _ready():
 # warning-ignore:return_value_discarded
 	connect("death",self.get_parent().get_parent(),"death")
 ## warning-ignore:return_value_discarded
-#	connect("end",self.get_parent().get_parent(),"end")
-	if r_charge == 1: get_node("ColorRect").visible = false 
+##	connect("end",self.get_parent().get_parent(),"end")
+#	if r_charge == 1: get_node("ColorRect").visible = false 
 
-func _physics_process(_delta):
+func _physics_process(_delta):	
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.stop()
-	else:
-		$AnimatedSprite.flip_h = false
-		if direction.x < 0: $AnimatedSprite.flip_h = true
-		$AnimatedSprite.play()
+		AnimatedSprite.animation = "Run"
+		AnimatedSprite.stop()
+	elif direction.x == 0:
+		AnimatedSprite.animation = "Run"
+		AnimatedSprite.play()
 
-	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+	#velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	
 	if Input.is_action_just_pressed("run") and r_charge > 0:
-		var speed : = Vector2(600,600)
-		$AnimatedSprite.play()
+		#var _speed : = Vector2(600,600)
+		#velocity = _speed
+		AnimatedSprite.play()
 		r_charge -= 1
-		$RunTimer.start()
-	elif $RunTimer.is_stopped():
-		velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+		RunTimer.start()
+	#elif RunTimer.is_stopped():
+		#velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
+	if RunTimer.is_stopped() == false:
+		var _speed : = Vector2(600,600)
+		velocity = _speed
+	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
 #		emit_signal("death")

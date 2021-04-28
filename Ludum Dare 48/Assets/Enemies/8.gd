@@ -3,7 +3,10 @@ extends KinematicBody2D
 var gravity: = 150.0
 var start_position = position.y
 var jump = false
-
+onready var JumperCollision = $JumperCollision
+onready var JumperCollision2 = $JumperCollision2
+onready var Jumper = $Jumper
+onready var Jumper2 = $Jumper2
 func _on_AttackTimer_timeout():
 	jump = true
 	yield(get_tree().create_timer(1.0), "timeout")

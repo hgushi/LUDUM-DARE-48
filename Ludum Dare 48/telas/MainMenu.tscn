@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://musics/awake10_megaWall.ogg" type="AudioStream" id=1]
 [ext_resource path="res://ThaleahFat/new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Charges/d_charge.tscn" type="PackedScene" id=3]
 [ext_resource path="res://telas/ControlScene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://telas/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sprites/menu.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Charges/p_charge.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Charges/r_charge.tscn" type="PackedScene" id=8]
 
 [node name="MainMenu" type="Control"]
 theme = ExtResource( 2 )
@@ -26,52 +30,10 @@ margin_right = 1025.0
 margin_bottom = 606.0
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 327.0
-margin_top = 35.0
-margin_right = 374.0
-margin_bottom = 49.0
-rect_scale = Vector2( 6, 6 )
-text = "DEEPER"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 285.0
-margin_top = 147.0
-margin_right = 370.0
-margin_bottom = 216.0
-rect_scale = Vector2( 4, 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_right = 85.0
-margin_bottom = 21.0
-text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Controls" type="Button" parent="VBoxContainer"]
-margin_top = 25.0
-margin_right = 85.0
-margin_bottom = 46.0
-text = "Controls"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 50.0
-margin_right = 85.0
-margin_bottom = 71.0
-text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="menu" type="Sprite" parent="MarginContainer/ColorRect"]
+position = Vector2( 514, 307 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
 
 [node name="ControlMenu" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -80,10 +42,64 @@ margin_top = -1.51489
 margin_right = -6.58984
 margin_bottom = -1.51489
 
+[node name="d" type="Button" parent="." groups=[
+"enemy",
+]]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 504.0
+margin_top = 224.0
+margin_right = 560.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 504.0
+margin_top = 328.0
+margin_right = 560.0
+margin_bottom = 376.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="r" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 504.0
+margin_top = 440.0
+margin_right = 560.0
+margin_bottom = 488.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -10.0
 autoplay = true
-[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_on_StartButton_button_down"]
-[connection signal="button_down" from="VBoxContainer/Controls" to="." method="_on_Controls_button_down"]
-[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_down"]
+
+[node name="d_charge" parent="." instance=ExtResource( 3 )]
+position = Vector2( 533, 248 )
+scale = Vector2( 4, 4 )
+
+[node name="p_charge" parent="." instance=ExtResource( 7 )]
+position = Vector2( 533, 352 )
+scale = Vector2( 4, 4 )
+
+[node name="r_charge" parent="." instance=ExtResource( 8 )]
+position = Vector2( 533, 464 )
+scale = Vector2( 4, 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 232.0
+margin_top = 208.0
+margin_right = 397.0
+margin_bottom = 223.0
+text = "click to select level >>"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="d" to="." method="_on_d_button_down"]
+[connection signal="button_down" from="p" to="." method="_on_p_button_down"]
+[connection signal="button_down" from="r" to="." method="_on_r_button_down"]

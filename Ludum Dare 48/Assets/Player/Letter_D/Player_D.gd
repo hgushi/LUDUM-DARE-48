@@ -3,8 +3,8 @@ extends KinematicBody2D
 var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
-var speed_abs : = Vector2(230,230)
-
+var speed_abs : = Vector2(300,230)
+onready var AnimatedSprite = $AnimatedSprite
 var d_charge = 0
 var p_charge = 0
 #var r_charge = 0 
@@ -23,30 +23,30 @@ func _physics_process(_delta):
 	var direction = get_direction()
 	
 	if not is_on_floor():
-		$AnimatedSprite.animation = "Idle"
-		$AnimatedSprite.stop()
+		AnimatedSprite.animation = "Idle"
+		AnimatedSprite.stop()
 	elif direction.x == 0:
-		$AnimatedSprite.animation = "Idle"
-		$AnimatedSprite.play()
+		AnimatedSprite.animation = "Idle"
+		AnimatedSprite.play()
 	else:
-		$AnimatedSprite.flip_h = false
+		AnimatedSprite.flip_h = false
 		if direction.x < 0:
-			$AnimatedSprite.flip_h = true
-		$AnimatedSprite.animation = "Walk"
-		$AnimatedSprite.play()
-	
-	velocity = move_and_slide(velocity,Vector2(0,-1))
-	
+			AnimatedSprite.flip_h = true
+		AnimatedSprite.animation = "Walk"
+		AnimatedSprite.play()
+
+	#velocity = move_and_slide(velocity,Vector2(0,-1))
+	velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
-		if $AnimatedSprite.flip_h == true: velocity.x = 1000
+		if AnimatedSprite.flip_h == true: velocity.x = 1000
 		else: velocity.x = 1000
-		$AnimatedSprite.animation = "Dash"
-		$AnimatedSprite.play()
+		AnimatedSprite.animation = "Dash"
+		AnimatedSprite.play()
 		d_charge -= 1
-		$DashTimer.start()
-	elif $DashTimer.is_stopped():
-		velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
-	
+		#$DashTimer.start()
+	#elif $DashTimer.is_stopped():
+		#velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
+	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	var collision = move_and_collide(velocity, true, true, true)
 #	if collision and collision.collider.is_in_group("5"):
 #		velocity = velocity.bounce(collision.normal)
