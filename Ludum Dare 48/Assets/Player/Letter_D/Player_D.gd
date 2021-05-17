@@ -14,7 +14,7 @@ signal death
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("death",self.get_parent(),"death")
+	connect("death", get_parent(), "death")
 #	connect("end",self.get_parent(),"end")
 	
 
@@ -39,7 +39,7 @@ func _physics_process(_delta):
 #	velocity = calculate_velocity(velocity,direction,speed_abs,jump_interrupted)
 	if Input.is_action_just_pressed("dash") and d_charge > 0:
 		if AnimatedSprite.flip_h == true: velocity.x = -1000
-		else: velocity.x = +1000
+		else: velocity.x = +850
 		AnimatedSprite.animation = "Dash"
 		AnimatedSprite.play()
 		d_charge -= 1
@@ -90,7 +90,8 @@ func _on_EnemyDetector_area_entered(area):
 	area.queue_free()
 
 func _on_EnemyDetector_body_entered(_body):
-	if _body.is_in_group("enemy"): emit_signal("death")
+	if _body.is_in_group("enemy"):
+		emit_signal("death")
 
 #func take_damage(amount):
 #	health -= amount

@@ -1,5 +1,5 @@
 extends Node2D
-var level_n = 1
+var level_n = 2
 signal next_level
 onready var tutorial = $tutorial
 func _ready():
@@ -9,7 +9,6 @@ func _physics_process(_delta):
 
 	if not tutorial.visible:
 		if $Player.r_charge == 1: tutorial.visible = true
-
 
 #func end():
 #	$ColorRect.next_level(level_n)

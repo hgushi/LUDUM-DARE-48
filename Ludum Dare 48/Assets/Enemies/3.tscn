@@ -18,7 +18,9 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="3" type="KinematicBody2D"]
+[node name="3" type="KinematicBody2D" groups=[
+"enemy",
+]]
 position = Vector2( 454.831, 220.486 )
 collision_layer = 16
 script = ExtResource( 2 )
@@ -33,5 +35,5 @@ physics_process_parent = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Fly"
-frame = 4
+frame = 2
 playing = true

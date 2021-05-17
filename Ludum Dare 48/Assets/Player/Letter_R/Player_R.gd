@@ -4,7 +4,7 @@ var velocity: = Vector2(0,0)
 var gravity: = 450.0
 var health: = 1.0
 
-var speed : = Vector2(300,450)
+var speed : = Vector2(300,230)
 onready var AnimatedSprite = $AnimatedSprite
 onready var RunTimer = $RunTimer
 
@@ -17,7 +17,7 @@ signal death
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("death",self.get_parent().get_parent(),"death")
+	connect("death", get_parent(),"death")
 ## warning-ignore:return_value_discarded
 ##	connect("end",self.get_parent().get_parent(),"end")
 #	if r_charge == 1: get_node("ColorRect").visible = false 
@@ -26,28 +26,29 @@ func _physics_process(_delta):
 	var jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction = get_direction()
 	
-	if not is_on_floor():
-
-		AnimatedSprite.animation = "Run"
-		AnimatedSprite.stop()
-	elif direction.x == 0:
-		AnimatedSprite.animation = "Run"
-		AnimatedSprite.play()
+#	if not is_on_floor():
+#		AnimatedSprite.animation = "Run"
+#		AnimatedSprite.stop()
+#	elif direction.x == 0:
+#		AnimatedSprite.animation = "Run"
+#		AnimatedSprite.play()
 
 
 	#velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	
 	if Input.is_action_just_pressed("run") and r_charge > 0:
-		#var _speed : = Vector2(600,600)
+		speed = Vector2(450,230)
 		#velocity = _speed
+		AnimatedSprite.animation = "Run"
 		AnimatedSprite.play()
 		r_charge -= 1
 		RunTimer.start()
 	#elif RunTimer.is_stopped():
 		#velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
-	if RunTimer.is_stopped() == false:
-		var _speed : = Vector2(600,600)
-		velocity = _speed
+	if RunTimer.is_stopped():
+		speed = Vector2(300,230)
+		AnimatedSprite.animation = "Walk"
+		AnimatedSprite.play()
 	velocity = calculate_velocity(velocity,direction,speed,jump_interrupted)
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 #	if health <= 0:
@@ -64,7 +65,9 @@ func calculate_velocity(linear_velocity: Vector2, direction: Vector2, _speed: Ve
 	return new_velocity
 
 func get_direction() -> Vector2:
-	return Vector2(
+	if not RunTimer.is_stopped():
+		return Vector2(1, - 1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0)
+	else: return Vector2(
 		Input.get_action_strength("move_right")/2 - Input.get_action_strength("move_left")/2, 
 	- 1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
 	)

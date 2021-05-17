@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Sprites/deeper-tileset.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 16, 16, 7.30305, 16, 7.6826, 2.86008, 16, 0 )
+points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -12,31 +12,31 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 8.51376, 16, 0, 16, 0, 0, 8.2347, 0 )
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 8.2347, 16, 0, 16, 0, 0, 8.2347, 0 )
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 0, 0, 8.2347, 0, 7.67653, 8.65533, 5.42154, 10.0675, 0, 10.0675 )
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 8, 8, 0, 8 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 16, 9.66562, 10.0939, 10.0675, 7.30305, 7.3297, 6.7449, 0, 16, 0 )
+points = PoolVector2Array( 16, 8, 8, 8, 8, 8, 8, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 16, 16, 7.02399, 16, 8.41939, 0, 16, 0 )
+points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 7.58214, 0, 16, 0, 16, 16, 7.58214, 16 )
+points = PoolVector2Array( 8, 0, 16, 0, 16, 16, 8, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 7.58214, 0, 16, 0, 16, 16, 7.86122, 16 )
+points = PoolVector2Array( 8, 0, 16, 0, 16, 16, 8, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 7.30305, 0, 16, 0, 16, 16, 7.58214, 16 )
+points = PoolVector2Array( 8, 0, 16, 0, 16, 16, 8, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 9.72447, 16, 0, 16, 0, 0, 9.72447, 0 )
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -54,10 +54,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 8.86188, 0, 8.86188 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
-points = PoolVector2Array( 16, 8.86188, 0, 8.86188, 0, 0, 16, 0 )
+points = PoolVector2Array( 16, 8, 0, 8, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 16, 11.1473, 5.27135, 0, 16, 0 )
@@ -123,16 +123,16 @@ points = PoolVector2Array( 0, 0, 16, 0, 15.6111, 8.10069, 0, 8.10069 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 9.48961, 0, 9.48961 )
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
-points = PoolVector2Array( 0, 0, 16, 0, 15.7953, 10.0675, 0, 10.0675 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=42]
-points = PoolVector2Array( 8.79285, 16, 0, 16, 0, 0, 8.63657, 2.05632 )
+[sub_resource type="ConvexPolygonShape2D" id=45]
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=43]
-points = PoolVector2Array( 8.79285, 15.932, 0, 16, 0, 0, 8.79285, 0 )
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=44]
-points = PoolVector2Array( 8.51376, 16, 0, 16, 0, 0, 8.79285, 0.176208 )
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [resource]
 0/name = "deeper-tileset.png 0"
@@ -298,14 +298,14 @@ points = PoolVector2Array( 8.51376, 16, 0, 16, 0, 0, 8.79285, 0.176208 )
 7/navigation_offset = Vector2( 0, 0 )
 7/shape_offset = Vector2( 0, 0 )
 7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 42 )
+7/shape = SubResource( 45 )
 7/shape_one_way = false
 7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 42 ),
+"shape": SubResource( 45 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0

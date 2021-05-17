@@ -16,7 +16,7 @@ func _ready():
 	beam.visible = false
 
 func _physics_process(delta):
-	var box = get_node("Beam").get_node("Area2D").get_node("CollisionShape2D").get_shape()
+#	var box = get_node("Beam").get_node("Area2D").get_node("CollisionShape2D").get_shape()
 	velocity.y += gravity*delta
 	if is_on_wall():
 		velocity.x *= -1.0
@@ -32,7 +32,7 @@ func _physics_process(delta):
 		beam.rotation = RayCast2D.cast_to.angle()
 		beam.region_rect.end.x = end.position.length()
 		beam.visible = true
-		box.scale.x = end.position.length()/2
+#		box.scale.x = end.position.length()/2
 
 func _on_AtaqueTimer_timeout():
 	PauseTimer.start()

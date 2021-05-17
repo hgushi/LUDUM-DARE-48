@@ -52,9 +52,20 @@ shape = SubResource( 3 )
 current = true
 
 [node name="PauseTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.9
+
+[node name="TimerLabel" type="Label" parent="."]
+margin_left = -18.5406
+margin_top = -25.4271
+margin_right = 21.4594
+margin_bottom = -11.4271
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" parent="." instance=ExtResource( 10 )]
+visible = false
 margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0

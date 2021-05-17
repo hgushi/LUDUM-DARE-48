@@ -40,8 +40,9 @@ func _physics_process(_delta):
 			p_charge -= 1
 			get_tree().paused = true
 			$PauseTimer.start()
-#		else:
-#			get_tree().paused = false
+	if not $PauseTimer.is_stopped():
+		$TimerLabel.text = str(int($PauseTimer.time_left + 1))
+	else: $TimerLabel.text = ""
 			
 	collision_info = move_and_collide(velocity, true, true, true)
 	
@@ -100,3 +101,4 @@ func bounce():
 
 func _on_PauseTimer_timeout():
 	get_tree().paused = false
+	$PauseTimer.stop()
